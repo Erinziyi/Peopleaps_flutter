@@ -43,6 +43,8 @@ flutter:
     - assets/peopleapslogo.png
     - assets/peopleapswhitelogo.png
     - assets/dashboard_background.png
+    - assets/login_domain_background.png
+    - assets/login_domain_logo.png
   fonts:
      - family: Nunito
        fonts:

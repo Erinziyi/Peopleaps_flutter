@@ -14,11 +14,12 @@ class LoginPage extends StatefulWidget{
 
    String _email;
    String _password;
-   String _errorMessage;
+   String _portalid;
 
 
    @override
    Widget build(BuildContext context) {
+
      Widget _showLogo() {
        return new Hero(
          tag: 'hero',
@@ -27,16 +28,39 @@ class LoginPage extends StatefulWidget{
        );
      }
 
+
+     Widget _portalInput() {
+       return Padding(
+           padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 15.0),
+           child: new TextFormField(
+             keyboardType: TextInputType.text,
+             autofocus: false,
+             decoration: new InputDecoration(
+               hintText: 'Portal ID',
+               border: OutlineInputBorder(
+                   borderRadius: BorderRadius.circular(100.0)),
+
+             ),
+
+             validator: (value) =>
+             value.isEmpty
+                 ? 'Portal ID can\'t be empty': null,
+             onSaved: (value) => _portalid = value,
+           )
+       );
+     }
+
+
      Widget _emailInput() {
        return Padding(
-           padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+           padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 15.0),
            child: new TextFormField(
              keyboardType: TextInputType.emailAddress,
              autofocus: false,
              decoration: new InputDecoration(
                hintText: 'Email',
                border: OutlineInputBorder(
-                   borderRadius: BorderRadius.circular(20.0)),
+                   borderRadius: BorderRadius.circular(100.0)),
 
              ),
 
@@ -50,14 +74,14 @@ class LoginPage extends StatefulWidget{
 
      Widget _passwordInput() {
        return Padding(
-           padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+           padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 15.0),
            child: new TextFormField(
              autofocus: false,
              obscureText: true,
              decoration: new InputDecoration(
                hintText: 'Password',
                border: OutlineInputBorder(
-                   borderRadius: BorderRadius.circular(20.0)),
+                   borderRadius: BorderRadius.circular(100.0)),
              ),
 
              validator: (value) =>
@@ -72,18 +96,19 @@ class LoginPage extends StatefulWidget{
 
      Widget _loginButton() {
        return new Padding(
-         padding: EdgeInsets.symmetric(vertical: 16.0),
+         padding: EdgeInsets.symmetric(vertical: 18.0,horizontal: 60.0),
          child: RaisedButton(
+           elevation: 8.0,
            shape: RoundedRectangleBorder(
-             borderRadius: BorderRadius.circular(20),
+             borderRadius: BorderRadius.circular(25),
            ),
            onPressed: () {
              Navigator.of(context).pushNamed(DashboardPage.tag);
            },
 
            padding: EdgeInsets.all(12),
-           color: Colors.lightBlueAccent,
-           child: Text('Log In', style: TextStyle(color: Colors.white)),
+           color: Colors.blueAccent[400],
+           child: Text('Log In', style: TextStyle(color: Colors.white,fontSize: 18.0)),
          ),
 
        );
@@ -92,13 +117,14 @@ class LoginPage extends StatefulWidget{
 
 
     return Scaffold(
-      backgroundColor: Colors.white,
+
       body: Center(
         child: ListView(
           shrinkWrap: true,
           padding: EdgeInsets.only(left: 24.0,right: 24.0),
          children: <Widget>[
            _showLogo(),
+           _portalInput(),
            _emailInput(),
            _passwordInput(),
            _loginButton(),

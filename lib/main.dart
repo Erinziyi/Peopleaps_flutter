@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_app/dashboard_page.dart';
 import 'package:flutter_login_app/login_page.dart';
 
 void main() => runApp(MyApp());
@@ -6,7 +7,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
-
+    DashboardPage.tag: (context) => DashboardPage(),
   };
 
   @override

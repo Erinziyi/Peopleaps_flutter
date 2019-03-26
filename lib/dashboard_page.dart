@@ -12,7 +12,11 @@ class DashboardPage extends StatelessWidget {
             decoration: new BoxDecoration(
               image: new DecorationImage(image: new AssetImage('assets/dashboard_background.png'),fit:BoxFit.cover,),
             ),
+            child: new Row(
+
+            ),
           )
+
         ],
       ),
 

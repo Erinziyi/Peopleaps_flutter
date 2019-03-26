@@ -21,8 +21,10 @@ class LoginPage extends StatefulWidget{
    Widget build(BuildContext context) {
      return new Scaffold(
        body: new Stack(
+
          children: <Widget>[
            _showBody(),
+
            new Container(
              constraints: new BoxConstraints.expand(
                height:300.00,
@@ -154,7 +156,11 @@ class LoginPage extends StatefulWidget{
 
              ],
            ),
-         ));
+         )
+
+     );
+
+
    }
 
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_app/dashboard_page.dart';
 
+
+
 class LoginPage extends StatefulWidget{
   static String tag ='login-page';
   @override
@@ -20,35 +22,43 @@ class LoginPage extends StatefulWidget{
    @override
    Widget build(BuildContext context) {
      return new Scaffold(
-       body: new Stack(
+       body: new GestureDetector(
+         onTap: (){
+           FocusScope.of(context).requestFocus(new FocusNode());
+         },
+         child: new Container(
 
-         children: <Widget>[
-           _showBody(),
+             child: new Stack(
+               children: <Widget>[
+                 _showBody(),
+                 new Container(
+                   constraints: new BoxConstraints.expand(
+                     height:300.00,
 
-           new Container(
-             constraints: new BoxConstraints.expand(
-               height:300.00,
-             ),
-             alignment: Alignment.bottomCenter,
-             padding: new EdgeInsets.only(left: 16.0, bottom: 8.0),
-             decoration: new BoxDecoration(
-               image: new DecorationImage(image: new AssetImage('assets/login_domain_background.png'),fit: BoxFit.cover,
-               ),
-             ),
-             child: Image.asset('assets/login_domain_logo.png',height: 800,width: 280,),
+                   ),
+                   alignment: Alignment.bottomCenter,
+                   padding: new EdgeInsets.only(left: 16.0, bottom: 8.0),
+                   decoration: new BoxDecoration(
+                     image: new DecorationImage(image: new AssetImage('assets/login_domain_background.png'),fit: BoxFit.cover,
+                     ),
+                   ),
+                   child: Image.asset('assets/login_domain_logo.png',height: 800,width: 280,),
 
-           ),
+                 ),
 
 
 
-         ],
+               ],
 
+
+             )
+         ),
 
        ),
+
      );
 
    }
-
 
    Widget _portalInput() {
      return Padding(
@@ -70,8 +80,6 @@ class LoginPage extends StatefulWidget{
          )
      );
    }
-
-
 
    Widget _emailInput() {
      return Padding(

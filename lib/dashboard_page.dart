@@ -5,8 +5,10 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return new Scaffold(
       body: new Stack(
+
         children: <Widget>[
           new Container(
             constraints: new BoxConstraints.expand(
@@ -20,42 +22,63 @@ class DashboardPage extends StatelessWidget {
 
             child: new Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-
               children: <Widget>[
                 new Container(
-                  width:50.0,
+                  margin: const EdgeInsets.only(bottom:600.0,),
+                  width: 50.0,
                   height:50.0,
                   decoration: new BoxDecoration(
                     shape: BoxShape.circle,
                     image: new  DecorationImage(image: new AssetImage('assets/profile_pic.png'),
                     ),
                   ),
+                ),
+                
+                new Expanded(
+                    child: new Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        new Column (
+                          children: <Widget>[
+                            new Expanded(
+                                child: new Container(
+                                  margin: const EdgeInsets.only(top:40.0,left: 20.0),
+                                  child: new Text('John Doe',
+                                   style: new TextStyle(
+                                     fontSize: 18.0, color: Colors.white,
+                                     fontWeight: FontWeight.bold,
+                                   ),
+                                  ),
+                                )
+                            )
+                          ],
+                        )
 
-                 child: new Column(
-                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                   mainAxisSize: MainAxisSize.min,
-                   crossAxisAlignment: CrossAxisAlignment.start,
-
-                   children: <Widget>[
-                     new Padding(padding: EdgeInsets.symmetric(vertical:3.0),),
-
-
-                      new Text('John Doe',
-                        style: new TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ) ,)
-                   ],
-                 ),
-
-                  
-                )
+                        new Column (
+                          children: <Widget>[
+                            new Expanded(
+                                child: new Container(
+                                  margin: const EdgeInsets.only(top:40.0,left: 20.0),
+                                  child: new Text('John Doe',
+                                    style: new TextStyle(
+                                        fontSize: 18.0, color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                )
+                            )
+                          ],
+                        )
 
 
-
+                      ],
+                    )
+                ),
+                
 
               ],
+
+
             ),
 
 

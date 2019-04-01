@@ -24,7 +24,7 @@ class DashboardPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 new Container(
-                  margin: const EdgeInsets.only(bottom:600.0,),
+                  margin: const EdgeInsets.only( top: 12.0,bottom:650.0, left: 10.0,),
                   width: 50.0,
                   height:50.0,
                   decoration: new BoxDecoration(
@@ -33,48 +33,35 @@ class DashboardPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                
+
                 new Expanded(
-                    child: new Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new Column (
-                          children: <Widget>[
-                            new Expanded(
-                                child: new Container(
-                                  margin: const EdgeInsets.only(top:40.0,left: 20.0),
-                                  child: new Text('John Doe',
-                                   style: new TextStyle(
-                                     fontSize: 18.0, color: Colors.white,
-                                     fontWeight: FontWeight.bold,
-                                   ),
-                                  ),
-                                )
-                            )
-                          ],
-                        )
-
-                        new Column (
-                          children: <Widget>[
-                            new Expanded(
-                                child: new Container(
-                                  margin: const EdgeInsets.only(top:40.0,left: 20.0),
-                                  child: new Text('John Doe',
-                                    style: new TextStyle(
-                                        fontSize: 18.0, color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                )
-                            )
-                          ],
-                        )
+                  child: new Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      new Row(
+                        children: <Widget>[
+                          new Expanded(
+                              child: Container(
+                                margin: const EdgeInsets.only(top: 12.0,bottom: 10.0),
+                                child: new Text('Erin Kong',
+                                style: new TextStyle(
+                                  fontSize: 18.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                 ),
+                                ),
+                              )
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
 
 
-                      ],
-                    )
-                ),
-                
+
+
+
 
               ],
 

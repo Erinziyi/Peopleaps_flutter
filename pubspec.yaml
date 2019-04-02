@@ -46,6 +46,7 @@ flutter:
     - assets/login_domain_background.png
     - assets/login_domain_logo.png
     - assets/profile_pic.png
+    - assets/icon_setting_profile.png
   fonts:
      - family: Nunito
        fonts:

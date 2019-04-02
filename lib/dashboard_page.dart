@@ -10,9 +10,7 @@ class DashboardPage extends StatelessWidget {
 
     return new Scaffold(
       body: new Stack(
-
         children: <Widget>[
-
 
           new Container(
             constraints: new BoxConstraints.expand(
@@ -38,71 +36,57 @@ class DashboardPage extends StatelessWidget {
                   ),
                 ),
 
-                new Expanded(
-                    child: new Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new Row(
-                          children: <Widget>[
-                            new Expanded(
-                                child: new Container(
-                                  margin: const EdgeInsets.only(
-                                    top: 5.0, bottom:10.0),
-                                    child: new Text('Erin Kong',
-                                      style: new TextStyle(
-                                        fontSize: 18.0,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                ),
-                            ),
+                new Container(
+                  child: new Column(
+                    children: <Widget>[
+//                       new Row(
+//                         children: <Widget>[
+//                           new Container(
+//                             margin: const EdgeInsets.only(
+//                               top: 5.0,bottom:10.0),
+//                               child: new Text('Erin Kong',
+//                                style: new TextStyle(
+//                                  fontSize: 18.0,
+//                                  color: Colors.white,
+//                                  fontWeight: FontWeight.bold,
+//                                 ),
+//                               ),
+//                           )
+//                         ],
+//                       )
+                      new Container(
+                        margin: const EdgeInsets.only(bottom: 5.0),
+                        child: new Text('Erin Kong'),
+                      ),
 
-                            new Container(
-                              margin: const EdgeInsets.only(right: 10.0),
+                      new Container(
+                        margin: const EdgeInsets.only(bottom: 5.0),
+                        child: new Text('Erin Kong'),
+                      )
 
-                            )
-
-
-
-                          ],
-
-
-                        )
-                      ],
-                    ),
+                    ],
+                  ),
                 ),
 
+                new Container(
 
 
 
+
+                )
 
               ],
             ),
 
-
-
-
-
-
-
-
-
-
-
-
-
-
           )
-
-
-
         ],
       ),
 
     );
   }
 }
+
+
 
 
 

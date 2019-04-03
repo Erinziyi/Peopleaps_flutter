@@ -9,9 +9,15 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return new Scaffold(
-      body: new Stack(
-        children: <Widget>[
+     appBar: new AppBar(
+       actions: <Widget>[
 
+
+       ],
+     ),
+      body: new Stack(
+
+        children: <Widget>[
           new Container(
             constraints: new BoxConstraints.expand(
 
@@ -83,6 +89,10 @@ class DashboardPage extends StatelessWidget {
       ),
 
     );
+  }
+
+  void choiceAction(String choice){
+    print('WORKING');
   }
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_app/Constains.dart';
 
 class DashboardPage extends StatelessWidget {
   static String tag = 'dashboard-page';
@@ -11,6 +12,18 @@ class DashboardPage extends StatelessWidget {
     return new Scaffold(
      appBar: new AppBar(
        actions: <Widget>[
+         PopupMenuButton<String>(
+           onSelected: choiceAction,
+           itemBuilder: (BuildContext context){
+             return Constants.choices.map((String choice){
+               return PopupMenuItem<String>(
+                 value: choice,
+                 child: Text(choice),
+               );
+
+             }).toList();
+           },
+         )
 
 
        ],

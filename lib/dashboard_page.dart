@@ -10,24 +10,7 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return new Scaffold(
-     appBar: new AppBar(
-       actions: <Widget>[
-         PopupMenuButton<String>(
-           onSelected: choiceAction,
-           itemBuilder: (BuildContext context){
-             return Constants.choices.map((String choice){
-               return PopupMenuItem<String>(
-                 value: choice,
-                 child: Text(choice),
-               );
 
-             }).toList();
-           },
-         )
-
-
-       ],
-     ),
       body: new Stack(
 
         children: <Widget>[
@@ -55,44 +38,8 @@ class DashboardPage extends StatelessWidget {
                   ),
                 ),
 
-                new Container(
-                  child: new Column(
-                    children: <Widget>[
-//                       new Row(
-//                         children: <Widget>[
-//                           new Container(
-//                             margin: const EdgeInsets.only(
-//                               top: 5.0,bottom:10.0),
-//                               child: new Text('Erin Kong',
-//                                style: new TextStyle(
-//                                  fontSize: 18.0,
-//                                  color: Colors.white,
-//                                  fontWeight: FontWeight.bold,
-//                                 ),
-//                               ),
-//                           )
-//                         ],
-//                       )
-                      new Container(
-                        margin: const EdgeInsets.only(bottom: 5.0),
-                        child: new Text('Erin Kong'),
-                      ),
-
-                      new Container(
-                        margin: const EdgeInsets.only(bottom: 5.0),
-                        child: new Text('Erin Kong'),
-                      )
-
-                    ],
-                  ),
-                ),
-
-                new Container(
 
 
-
-
-                )
 
               ],
             ),
@@ -104,9 +51,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-  void choiceAction(String choice){
-    print('WORKING');
-  }
+
 }
 
 

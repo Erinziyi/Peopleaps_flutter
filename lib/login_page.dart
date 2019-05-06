@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_app/dashboard_page.dart';
 
+import 'Blocs/login_bloc.dart';
+
 
 
 class LoginPage extends StatefulWidget{
@@ -9,32 +11,24 @@ class LoginPage extends StatefulWidget{
   _LoginPageState createState() => _LoginPageState();
 }
 
- enum FormMode{LOGIN,SIGNUP}
+
 
  class _LoginPageState extends State<LoginPage> {
 
-
-   String _email;
-   String _password;
-   String _portalid;
-
-
-   @override
+  @override
    Widget build(BuildContext context) {
+
      return new Scaffold(
-       body: new GestureDetector(
-         onTap: (){
-           FocusScope.of(context).requestFocus(new FocusNode());
-         },
+       body: new SingleChildScrollView(
+
          child: new Container(
 
              child: new Stack(
                children: <Widget>[
-                 _showBody(),
+
                  new Container(
                    constraints: new BoxConstraints.expand(
                      height:300.00,
-
                    ),
                    alignment: Alignment.bottomCenter,
                    padding: new EdgeInsets.only(left: 16.0, bottom: 8.0),
@@ -45,13 +39,9 @@ class LoginPage extends StatefulWidget{
                    child: Image.asset('assets/login_domain_logo.png',height: 800,width: 280,),
 
                  ),
-
-
-
                ],
 
-
-             )
+             ),
          ),
 
        ),
@@ -60,116 +50,72 @@ class LoginPage extends StatefulWidget{
 
    }
 
-   Widget _portalInput() {
-     return Padding(
-         padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 15.0),
-         child: new TextFormField(
-           keyboardType: TextInputType.text,
-           autofocus: false,
-           decoration: new InputDecoration(
-             hintText: 'Portal ID',
-             border: OutlineInputBorder(
-                 borderRadius: BorderRadius.circular(100.0)),
+}
 
-           ),
+class _LoginPageForm extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final bloc = Bloc();
+    return Container(
+      child: new Container(
+        height:MediaQuery.of(context).size.height,
+        padding: EdgeInsets.all(16),
+        child: new Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
 
-           validator: (value) =>
-           value.isEmpty
-               ? 'Portal ID can\'t be empty': null,
-           onSaved: (value) => _portalid = value,
-         )
-     );
-   }
+            StreamBuilder<String>(
+              stream: bloc.email,
+              builder: (context,snapshot)=>TextField(
+                onChanged: bloc.emailChanged,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText:"Enter email",
+                    labelText: "Email",
+                    errorText: snapshot.error  //if error
+                ),
+              ),
+            ),
 
-   Widget _emailInput() {
-     return Padding(
-         padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0,15.0),
-         child: new TextFormField(
-           keyboardType: TextInputType.emailAddress,
-           autofocus: false,
-           decoration: new InputDecoration(
-             hintText: 'Email',
-             border: OutlineInputBorder(
-                 borderRadius: BorderRadius.circular(150.0)),
+            SizedBox(
+              height: 20.0,
+            ),
 
-           ),
+            // password Text Field
+            StreamBuilder<String>(
+              stream: bloc.password,
+              builder:(context,snapshot)=>TextField(
+                onChanged: bloc.passwordChanged,
+                keyboardType: TextInputType.text,
+                obscureText: true,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Enter password",
+                    labelText: "Password",
+                    errorText: snapshot.error //if error
+                ),
+              ),
+            ),
 
-           validator: (value) =>
-           value.isEmpty
-               ? 'Email can\'t be empty': null,
-           onSaved: (value) => _email = value,
-         )
-     );
-   }
+            SizedBox(
+              height: 20.0,
+            ),
 
-   Widget _passwordInput() {
-     return Padding(
-         padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0,15.0),
-         child: new TextFormField(
-           autofocus: false,
-           obscureText: true,
-           decoration: new InputDecoration(
-             hintText: 'Password',
-             border: OutlineInputBorder(
-                 borderRadius: BorderRadius.circular(150.0)),
-           ),
-
-           validator: (value) =>
-           value.isEmpty
-               ? 'Password can\'t be empty'
-               : null,
-           onSaved: (value) => _password = value,
-         )
-
-     );
-   }
-
-   Widget _loginButton() {
-     return new Padding(
-       padding: EdgeInsets.symmetric(vertical: 18.0,horizontal: 60.0),
-       child: RaisedButton(
-         elevation: 8.0,
-         shape: RoundedRectangleBorder(
-           borderRadius: BorderRadius.circular(25),
-         ),
-         onPressed: () {
-           Navigator.of(context).pushNamed(DashboardPage.tag);
-         },
-
-         padding: EdgeInsets.all(12),
-         color: Colors.blueAccent[400],
-         child: Text('Log In', style: TextStyle(color: Colors.white,fontSize: 18.0)),
-       ),
-
-     );
-   }
+          ],
+        ),
 
 
 
+      ),
 
 
-   Widget _showBody(){
-     return new Container(
-         margin: const EdgeInsets.only(top:300.0),
-         padding: EdgeInsets.all(40.0),
-         child: new Form(
-           child: new ListView(
-             shrinkWrap: true,
-             children: <Widget>[
-               _portalInput(),
-               _emailInput(),
-               _passwordInput(),
-               _loginButton(),
+    );
+  }
 
 
-             ],
-           ),
-         )
-
-     );
-
-
-   }
+}
 
 
 
@@ -178,8 +124,5 @@ class LoginPage extends StatefulWidget{
 
 
 
-
-
- }
 
 

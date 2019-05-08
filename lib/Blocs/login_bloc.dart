@@ -22,9 +22,6 @@ class Bloc with login_Validators{
   Stream<bool> get sumbitCheck => Observable.combineLatest3(portal,email, password, (pi,e,p)=> true);
 
 
-//  StreamTransformer<String, String> get portalValidator => null;
-//  StreamTransformer<String, String> get emailValidator => null;
-//  StreamTransformer<String, String> get passwordValidator => null;
 
 
   void submit(){

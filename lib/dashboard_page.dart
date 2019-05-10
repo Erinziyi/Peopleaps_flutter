@@ -35,7 +35,7 @@ class DashboardPage extends StatelessWidget {
      margin: const EdgeInsets.only(top:50.0),
      child: new Row(
        crossAxisAlignment: CrossAxisAlignment.start,
-       mainAxisAlignment: MainAxisAlignment.start,
+       mainAxisAlignment: MainAxisAlignment.spaceAround,
        children: <Widget>[
          Padding(
            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0,10.0),
@@ -63,8 +63,6 @@ class DashboardPage extends StatelessWidget {
                  ),
                ),
              ],
-
-
            ),
          ),
          Container(
@@ -74,37 +72,115 @@ class DashboardPage extends StatelessWidget {
              children: <Widget>[
               Image.asset('assets/icon_setting_profile.png', height: 50.0,width:50.0 ),
              ],
-
            ),
          ),
-
-         ],
+       ],
      ),
-
    );
 }
 
 /*This is menu section to handle 6 buttons*/
 Widget menuSection(BuildContext context, int width_percent){
-    return new Container(
 
+  //All the menu icon and label set here. After that, generateMenuItems() function will render its menu automatically
+  List<MenuItem> menuItem  =  new List<MenuItem>();
+
+  MenuItem course = new MenuItem();
+  course.label  = "Course";
+  course.image  = "assets/icon_course.png";
+  menuItem.add(course);
+
+  MenuItem training = new MenuItem();
+  training.label  = "Training";
+  training.image  = "assets/icon_training.png";
+  menuItem.add(training);
+
+  MenuItem discussion = new MenuItem();
+  discussion.label  = "Discussion";
+  discussion.image  = "assets/icon_discussion.png";
+  menuItem.add(discussion);
+
+//  MenuItem notification = new MenuItem();
+//  course.label  = "Notification";
+//  course.image  = "assets/icon_notificaton.png";
+//  menuItem.add(notification);
+//
+//  MenuItem actionplan = new MenuItem();
+//  training.label  = "Action Plan";
+//  training.image  = "assets/icon_action_plan.png";
+//  menuItem.add(actionplan);
+//
+//  MenuItem Report = new MenuItem();
+//  discussion.label  = "Report";
+//  discussion.image  = "assets/icon_report.png";
+//  menuItem.add(Report);
+
+
+  return new Container(
       child:new Column(
         children: <Widget>[
           new Container(
-          alignment: Alignment.topCenter,
-            child: new Container(
+              margin: const EdgeInsets.only(top:20.0),
               height: 300.0,
               width: MediaQuery.of(context).size.width * width_percent,
               child: new Card(
                 color: Colors.white,
                 elevation: 4.0,
-              ),
+                child: new Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: generateMenuItems(menuItem),
+                    //Automatically generate as much buttons as you wants based on array size,
+                  ),
+
+
+
+
+
+
+
+
             ),
 
           ),
+
         ],
       ),
     );
+}
+
+  //This function is to handle menu rendering from Array
+  generateMenuItems(List<MenuItem> menuItems)
+  {
+    List<Widget> list = new List<Widget>();
+    for(var i = 0; i < menuItems.length; i++){
+      list.add(buildButtonColumn(Image.asset(menuItems[i].image, height:60.0,width:60.0), menuItems[i].label));
+
+    }
+
+    return list;
+  }
+
+Column buildButtonColumn(assetImage,String label){
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      assetImage,
+      Container(
+        margin: const EdgeInsets.only(top:8),
+        child: new Text(
+          label,
+          style: TextStyle(
+            fontSize:12,
+            fontFamily:'Roboto'
+          ),
+        ),
+      ),
+
+    ],
+
+  );
 }
 
 //Parent layout to adjust all content's height. Mainly for scrollview control
@@ -118,12 +194,17 @@ Widget dashboardContentLayout(BuildContext context){
         headerSection(),
         menuSection(context, 95),
 
+
       ],
     ),
   );
 }
+}
 
-
+class MenuItem {
+  String image;
+  String label;
+  MenuItem({this.image, this.label});
 }
 
 

@@ -44,15 +44,23 @@ flutter:
   assets:
     - assets/peopleapslogo.png
     - assets/peopleapswhitelogo.png
-    - assets/dashboard_background.png
     - assets/login_domain_background.png
     - assets/login_domain_logo.png
     - assets/profile_pic.png
     - assets/icon_setting_profile.png
+    - assets/icon_course.png
+    - assets/icon_training.png
+    - assets/icon_discussion.png
+    - assets/icon_notification.png
+    - assets/icon_action_plan.png
+    - assets/icon_report.png
   fonts:
-     - family: Nunito
+     - family: Roboto
        fonts:
-         - asset: assets/Nunito.ttf
+         - asset: fonts/roboto_regular.ttf
+         - asset: fonts/roboto_medium.ttf
+         - asset: fonts/roboto_bold.ttf
+
 
 
   # To add assets to your application, add an assets section, like this:

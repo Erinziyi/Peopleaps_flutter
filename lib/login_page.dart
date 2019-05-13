@@ -13,7 +13,7 @@ class _LoginPageState extends State<LoginPage> {
     return new Scaffold(
       body: new Stack(
         children: <Widget>[
-          _showBody(),
+
           new Container(
             constraints: new BoxConstraints.expand(
               height:300.00,
@@ -27,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Image.asset('assets/login_domain_logo.png',height: 800,width: 280,),
 
           ),
+          _showBody(),
         ],
       ),
     );

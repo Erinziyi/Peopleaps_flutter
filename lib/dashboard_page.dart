@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_app/Constains.dart';
-import 'package:path/path.dart';
 
-import 'Constants/fonts.dart';
+
 
 
 class DashboardPage extends StatelessWidget {
   static String tag = 'dashboard-page';
 
-  ScrollController scrollController;
-  var cardIndex = 0;
-
-  @override
-  void initState() {
-    scrollController = new ScrollController();
-  }
 
 
   @override
@@ -43,208 +34,205 @@ class DashboardPage extends StatelessWidget {
 
   /*This is header section to handle profile image, email, name and dropdown button*/
   Widget headerSection() {
-   return new Container(
-     margin: const EdgeInsets.only(top:30.0),
-     child: new Row(
-       crossAxisAlignment: CrossAxisAlignment.start,
-       mainAxisAlignment: MainAxisAlignment.spaceAround,
-       children: <Widget>[
-         Padding(
-           padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0,10.0),
-          child: new CircleAvatar(
-            backgroundImage: new AssetImage('assets/profile_pic.png'),
-            radius:24.0,
+    return new Container(
+      margin: const EdgeInsets.only(top:30.0),
+      child: new Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0,10.0),
+            child: new CircleAvatar(
+              backgroundImage: new AssetImage('assets/profile_pic.png'),
+              radius:24.0,
+            ),
           ),
+          Container(
+            padding: new EdgeInsets.only(left:20.0),
+            child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                new Text("Erin",
+                  style:new TextStyle(
+                    color:Colors.white,
+                    fontSize: 16.0,
+                  ),
+                ),
+                new Text("erin@peoplelogy.com",
+                  style:new TextStyle(
+                    color:Colors.white,
+                    fontSize: 16.0,
+                  ),
+                ),
+              ],
+            ),
           ),
-         Container(
-           padding: new EdgeInsets.only(left:20.0),
-           child: new Column(
-             crossAxisAlignment: CrossAxisAlignment.start,
-             mainAxisAlignment: MainAxisAlignment.spaceAround,
-             children: <Widget>[
-               new Text("Erin",
-                 style:new TextStyle(
-                     color:Colors.white,
-                     fontSize: 16.0,
-                 ),
-               ),
-               new Text("erin@peoplelogy.com",
-                 style:new TextStyle(
-                   color:Colors.white,
-                   fontSize: 16.0,
-                 ),
-               ),
-             ],
-           ),
-         ),
-         Container(
-           padding: new EdgeInsets.only(left:50.0),
-           child: new Column(
-             mainAxisAlignment:MainAxisAlignment.spaceAround,
-             children: <Widget>[
-              Image.asset('assets/icon_setting_profile.png', height: 50.0,width:50.0 ),
-             ],
-           ),
-         ),
-       ],
-     ),
-   );
+          Container(
+            padding: new EdgeInsets.only(left:50.0),
+            child: new Column(
+              mainAxisAlignment:MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                Image.asset('assets/icon_setting_profile.png', height: 50.0,width:50.0 ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
 /*This is menu section to handle 6 buttons*/
-Widget menuSection(BuildContext context, int width_percent){
+  Widget menuSection(BuildContext context, int width_percent){
 
-  //All the menu icon and label set here. After that, generateMenuItems() function will render its menu automatically
-  List<MenuItem> menuItem  =  new List<MenuItem>();
-  List<MenuItem> menuItemTwo  =  new List<MenuItem>();
+    //All the menu icon and label set here. After that, generateMenuItems() function will render its menu automatically
+    List<MenuItem> menuItem  =  new List<MenuItem>();
+    List<MenuItem> menuItemTwo  =  new List<MenuItem>();
 
-  //Column one
+    //Column one
 
-  MenuItem course = new MenuItem();
-  course.label  = "Course";
-  course.image  = "assets/icon_course.png";
-  menuItem.add(course);
+    MenuItem course = new MenuItem();
+    course.label  = "Course";
+    course.image  = "assets/icon_course.png";
+    menuItem.add(course);
 
-  MenuItem training = new MenuItem();
-  training.label  = "Training";
-  training.image  = "assets/icon_training.png";
-  menuItem.add(training);
+    MenuItem training = new MenuItem();
+    training.label  = "Training";
+    training.image  = "assets/icon_training.png";
+    menuItem.add(training);
 
-  MenuItem discussion = new MenuItem();
-  discussion.label  = "Discussion";
-  discussion.image  = "assets/icon_discussion.png";
-  menuItem.add(discussion);
+    MenuItem discussion = new MenuItem();
+    discussion.label  = "Discussion";
+    discussion.image  = "assets/icon_discussion.png";
+    menuItem.add(discussion);
 
-  //Column two
+    //Column two
 
-  MenuItem notification = new MenuItem();
-  notification.label  = "Notification";
-  notification.image  = "assets/icon_notification.png";
-  menuItemTwo.add(notification);
+    MenuItem notification = new MenuItem();
+    notification.label  = "Notification";
+    notification.image  = "assets/icon_notification.png";
+    menuItemTwo.add(notification);
 
-  MenuItem actionplan = new MenuItem();
-  actionplan.label  = "Action Plan";
-  actionplan.image  = "assets/icon_action_plan.png";
-  menuItemTwo.add(actionplan);
+    MenuItem actionplan = new MenuItem();
+    actionplan.label  = "Action Plan";
+    actionplan.image  = "assets/icon_action_plan.png";
+    menuItemTwo.add(actionplan);
 
-  MenuItem report = new MenuItem();
-  report.label  = "Report";
-  report.image  = "assets/icon_report.png";
-  menuItemTwo.add(report);
-
-
-  return new Card(
-    color: Colors.white,
-    elevation: 4.0,
-    child: Container(
-      margin: const EdgeInsets.only(top:10.0),
-      height: 250.0,
-      width: MediaQuery.of(context).size.width * width_percent,
+    MenuItem report = new MenuItem();
+    report.label  = "Report";
+    report.image  = "assets/icon_report.png";
+    menuItemTwo.add(report);
 
 
-      child:new Column(
-        children: <Widget>[
-          new Container(
-            padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0,5.0),
-            child: new Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: generateMenuItems(menuItem),
+    return new Card(
+      color: Colors.white,
+      elevation: 4.0,
+      child: Container(
+        margin: const EdgeInsets.only(top:10.0),
+        height: 250.0,
+        width: MediaQuery.of(context).size.width * (width_percent / 100),
+
+
+        child:new Column(
+          children: <Widget>[
+            new Container(
+              padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0,5.0),
+              child: new Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: generateMenuItems(menuItem),
+              ),
             ),
-          ),
-          new Container(
-            padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0,0.0),
-            child: new Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: generateMenuItems(menuItemTwo),
-            ),
-          )
-        ],
+            new Container(
+              padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0,0.0),
+              child: new Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: generateMenuItems(menuItemTwo),
+              ),
+            )
+          ],
+        ),
+
       ),
+    );
+  }
 
-    ),
-  );
-}
+  Widget actionPlanSection (BuildContext context,){
+//    List<CourseItem> courseItem  =  new List<CourseItem>();
+//    CourseItem course = new CourseItem();
+//    course.title  = "Sample Course";
+//    course.image  = "assets/icon_course.png";
+//    course.status = "Incomplete";
+//    courseItem.add(course);
 
-Widget actionPlanSection (BuildContext context, ){
-
-  List<CourseItem> courseItem  =  new List<CourseItem>();
-  CourseItem  cit = new CourseItem();
-  cit.title = "abc course";
-  cit.image = "....";
-  cit.status = "Incomplete";
-  cit.dateline  = "03-03-2019";
-  
-  courseItem.add(cit);
-
-  return Container(
-    padding: const EdgeInsets.fromLTRB(2.0, 20.0, 2.0,0.0),
+    return Container(
+      padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0,0.0),
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-        buildContentTitle('Action Plan'),
-          buildContenttext('Due Date'),
+          buildContentTitle('Action Plan'),
+          buildContentTextLabel('Due Date'),
           new Container(
             child: new Row(
               mainAxisSize:MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-               new Container(
-                 padding: const EdgeInsets.fromLTRB(0.0, 0.0, 1.0,0.0),
-                 margin: const EdgeInsets.only(top: 10.0),
-                 height: 95,
-                 width: 120.0,
-                 child: new Card(
-                   color: Colors.white,
-                   elevation: 4.0,
-                   child: new Container(
-                     padding: EdgeInsets.all(5.0),
-                     child: new Column(
-                       mainAxisSize: MainAxisSize.min,
-                       mainAxisAlignment: MainAxisAlignment.center,
-                       children: <Widget>[
-                         Row(
-                           children: <Widget>[
-                             new Text('0',
-                               style:new TextStyle(
-                                 color:Colors.indigoAccent[700],
-                                 fontSize:34.0,
-                                 fontFamily:'Roboto',
-                               ),
-                             ),
-                           ],
-                         ),
-                         Row(
-                           children: <Widget>[
-                             Expanded(
-                               child: new Container(
-                                 margin: const EdgeInsets.only(left: 2.0, right:2.0),
-                                 child: Divider(
-                                   color: Colors.grey[600],
-                                   height: 20,
-                                 ),
-                               ),
-                             )
-                           ],
-                         ),
-                         Row(
-                           children: <Widget>[
-                             new Text('This Month',
-                               style:new TextStyle(
-                                 color:Colors.blueGrey[200],
-                                 fontSize:12.0,
-                                 fontFamily:'Roboto',
-                               ),
-                             ),
-                           ],
-                         ),
-                       ],
-                     ),
-                   ),
-                 ),
-               ),
+                new Container(
+                  padding: const EdgeInsets.fromLTRB(0.0, 0.0, 1.0,0.0),
+                  margin: const EdgeInsets.only(top: 10.0),
+                  height: 95,
+                  width: 120.0,
+                  child: new Card(
+                    color: Colors.white,
+                    elevation: 4.0,
+                    child: new Container(
+                      padding: EdgeInsets.all(5.0),
+                      child: new Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              new Text('0',
+                                style:new TextStyle(
+                                  color:Colors.indigoAccent[700],
+                                  fontSize:34.0,
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: new Container(
+                                  margin: const EdgeInsets.only(left: 2.0, right:2.0),
+                                  child: Divider(
+                                    color: Colors.grey[600],
+                                    height: 20,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              new Text('This Month',
+                                style:new TextStyle(
+                                  color:Colors.blueGrey[200],
+                                  fontSize:12.0,
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
                 new Container(
                   padding: const EdgeInsets.fromLTRB(0.0, 0.0, 1.0,0.0),
                   margin: const EdgeInsets.only(top: 10.0),
@@ -308,7 +296,6 @@ Widget actionPlanSection (BuildContext context, ){
                   child: new Card(
                     color: Colors.white,
                     elevation: 4.0,
-
                     child: new Container(
                       padding: EdgeInsets.all(5.0),
                       child: new Column(
@@ -348,6 +335,9 @@ Widget actionPlanSection (BuildContext context, ){
                                   fontFamily:'Roboto',
                                 ),
                               ),
+                              
+                              
+                              
                             ],
                           ),
                         ],
@@ -360,114 +350,97 @@ Widget actionPlanSection (BuildContext context, ){
           ),
         ],
       ),
-  );
-}
+    );
+  }
 
+
+
+  Widget dashboardScrollItem (BuildContext context,){
+    return Container(
+      padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0,0.0),
+      child: new Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          _buildListView(30.0)
+
+        ],
+
+      ),
+
+    );
+  }
+
+  Widget trainingSessionSection(BuildContext context,){
+    return Container(
+      padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0,0.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          buildContentTitle('Training Session'),
+          buildContentTextLabel('Latest Training Infomation'),
+
+        ],
+
+      ),
+
+    );
+  }
+
+
+  Widget browseCourseSection (BuildContext context,){
+    return Container(
+      padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0,0.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          buildContentTitle('Browse Course'),
+
+        ],
+
+      ),
+
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+  //body Dashboard
   Widget bodyScrollviewContent(BuildContext context) {
     return new SingleChildScrollView(
+        padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0,10.0),
         child: new Column(
           children: <Widget>[
             headerSection(),
-            menuSection(context, 95),
+            menuSection(context,90),
             actionPlanSection(context),
+            dashboardScrollItem(context),
+            trainingSessionSection(context),
+            dashboardScrollItem(context),
+            browseCourseSection(context),
+            dashboardScrollItem(context),
+
+
+
+
           ],
         )
     );
   }
 
-  /*Item type : 0 = action plan, 1 = Training session, 2 = Course item*/
-  Widget horizontalScrollView(BuildContext context, List<List> courseItems, int itemType) {
-    return  new ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      itemCount: 3,
-      controller: scrollController,
-      scrollDirection: Axis.horizontal,
-      itemBuilder: (context, position) {
-
-        switch (itemType){
-          case 0:
-
-            break;
-          case 1:
-
-            break;
-          case 2:
-
-            break;
-        }
-      },
-    );
-  }
-
-
-  Widget actionPlanScrollItem(List<CourseItem> courseItems,int position) {
-    return GestureDetector(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Card(
-          child: Container(
-            width: 250.0,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Icon(courseItems[position].title, color: appColors[position],),
-                      Icon(Icons.more_vert, color: Colors.grey,),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                        child: Text("${courseItems[position].title} Tasks", style: TextStyle(color: Colors.grey),),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                        child: Text("${courseItems[position].image}", style: TextStyle(fontSize: 28.0),),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: LinearProgressIndicator(value: courseItems[position].percentage,),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0)
-          ),
-        ),
-      ),
-      onHorizontalDragEnd: (details) {
-        if(details.velocity.pixelsPerSecond.dx > 0) {
-          if(cardIndex>0)
-            cardIndex--;
-        }else {
-          if(cardIndex<2)
-            cardIndex++;
-        }
-        setState(() {
-          scrollController.animateTo((cardIndex)*256.0, duration: Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
-        });
-      },
-    );
-  }
 
 
 
 
-//This function is to handle menu rendering from Array
+
+
+  //This function is to handle menu rendering from Array
   generateMenuItems(List<MenuItem> menuItems)
   {
     List<Widget> list = new List<Widget>();
@@ -479,54 +452,54 @@ Widget actionPlanSection (BuildContext context, ){
     return list;
   }
 
-
-Column buildButtonColumn(assetImage,String label){
-  return Column(
-    mainAxisSize: MainAxisSize.min,
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      assetImage,
-      Container(
-        margin: const EdgeInsets.only(top:8),
-        child: new Text(
-          label,
-          style: TextStyle(
-            fontSize:12,
-            fontFamily:'Roboto'
+// Resourse Reuse
+  Column buildButtonColumn(assetImage,String label){
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        assetImage,
+        Container(
+          margin: const EdgeInsets.only(top:8),
+          child: new Text(
+            label,
+            style: TextStyle(
+                fontSize:12,
+                fontFamily:'Roboto'
+            ),
           ),
         ),
-      ),
-    ],
-  );
-}
+      ],
+    );
+  }
 
-Column buildContentTitle(String titlelabel){
-  return Column (
-    children: <Widget>[
-      new Container(
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            new Text(
-              titlelabel,
-              style: TextStyle(
-                fontSize:20,
-                fontFamily: 'Paytone one',
-             ),
-            ),
-          ],
-        ),
-      )
-    ],
-
-  );
-}
-
-Column buildContenttext(String textlabel){
+  Column buildContentTitle(String titlelabel){
     return Column (
       children: <Widget>[
         new Container(
-          child: new Column(
+          child: new Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              new Text(
+                titlelabel,
+                style: TextStyle(
+                  fontSize:20,
+                  fontFamily: 'Paytone one',
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+
+    );
+  }
+
+  Column buildContentTextLabel(String textlabel){
+    return Column (
+      children: <Widget>[
+        new Container(
+          child: new Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               new Text(
@@ -543,6 +516,60 @@ Column buildContenttext(String textlabel){
       ],
     );
   }
+
+  _buildListView(double height) {
+    return Container(
+      height: 300.0,
+      margin: EdgeInsets.only(top: 10.0),
+      child: ListView.builder(
+        itemCount:6,
+        scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.only(left:2.0),
+        physics: BouncingScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Padding(
+              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
+              child: SizedBox(
+                width: 200.0,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12.0),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black12,
+                                offset: Offset(2.0, 10.0),
+                                blurRadius: 10.0)
+                          ]),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+//                        SizedBox(
+//                          height: 5.0,
+//                        ),
+//                        Image.asset(
+//                          "assets/imgs/perfume_4.png",
+//                          height: 80.0,
+//                          width: 80.0,
+//                        ),
+//                        SizedBox(
+//                          height: 5.0,
+//                        ),
+
+                      ],
+                    )
+                  ],
+                ),
+              ));
+        },
+      ),
+    );
+  }
+
 }
 
 class MenuItem {
@@ -551,70 +578,96 @@ class MenuItem {
   MenuItem({this.image, this.label});
 }
 
-class CourseItem {
-  String _title;
 
-  String get title => _title;
-
-  set title(String title) {
-    _title = title;
-  }
-  String _image;
-
-  String get image => _image;
-
-  set image(String image) {
-    _image = image;
-  }
-  String _status;
-
-  String get status => _status;
-
-  set status(String status) {
-    _status = status;
-  }
-  String _startDate;
-
-  String get startDate => _startDate;
-
-  set startDate(String startDate) {
-    _startDate = startDate;
-  }
-  String _endDate;
-
-  String get endDate => _endDate;
-
-  set endDate(String endDate) {
-    _endDate = endDate;
-  }
-  String _dateline;
-
-  String get dateline => _dateline;
-
-  set dateline(String dateline) {
-    _dateline = dateline;
-  }
-  double _percentage;
-
-  double get percentage => _percentage;
-
-  set percentage(double percentage) {
-    _percentage = percentage;
-  }
-  String _percentageLabel;
-
-  String get percentageLabel => _percentageLabel;
-
-  set percentageLabel(String percentageLabel) {
-    _percentageLabel = percentageLabel;
-  }
-
-
-}
+////Slider
+//class DashboardHorizontalSlider extends StatefulWidget {
+//
+////  List<CourseItem> courseItems = new List<CourseItem>();
+////  BuildContext context;
+////  DashboardHorizontalSlider({this.courseItems, this.context, Key key}) : super(key: key);
+//
+//
+//  @override
+//  _DashboardHorizontalSliderState createState() => new _DashboardHorizontalSliderState();
+//}
+//
+//class _DashboardHorizontalSliderState extends State<DashboardHorizontalSlider> with TickerProviderStateMixin {
+//  buildCardListView(double height){
+//
+//  }
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    // TODO: implement build
+//    return null;
+//  }
+//
+//
+//
+//
+//}
 
 
 
-
-
-
+//
+//class CourseItem {
+//  String _title;
+//
+//  String get title => _title;
+//
+//  set title(String title) {
+//    _title = title;
+//  }
+//  String _image;
+//
+//  String get image => _image;
+//
+//  set image(String image) {
+//    _image = image;
+//  }
+//  String _status;
+//
+//  String get status => _status;
+//
+//  set status(String status) {
+//    _status = status;
+//  }
+//  String _startDate;
+//
+//  String get startDate => _startDate;
+//
+//  set startDate(String startDate) {
+//    _startDate = startDate;
+//  }
+//  String _endDate;
+//
+//  String get endDate => _endDate;
+//
+//  set endDate(String endDate) {
+//    _endDate = endDate;
+//  }
+//  String _dateline;
+//
+//  String get dateline => _dateline;
+//
+//  set dateline(String dateline) {
+//    _dateline = dateline;
+//  }
+//  double _percentage;
+//
+//  double get percentage => _percentage;
+//
+//  set percentage(double percentage) {
+//    _percentage = percentage;
+//  }
+//  String _percentageLabel;
+//
+//  String get percentageLabel => _percentageLabel;
+//
+//  set percentageLabel(String percentageLabel) {
+//    _percentageLabel = percentageLabel;
+//  }
+//
+//
+//}
 

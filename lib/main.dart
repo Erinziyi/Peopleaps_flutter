@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_app/dashboard_page.dart';
+import 'package:flutter_login_app/Dashboard/dashboard_page.dart';
 import 'package:flutter_login_app/login_page.dart';
+
+import 'Course/course_list.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,6 +10,7 @@ class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
     DashboardPage.tag: (context) => DashboardPage(),
+    CourseListPage.tag: (context) => CourseListPage(),
   };
 
   @override

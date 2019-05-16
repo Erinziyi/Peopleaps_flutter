@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dashboard_resourse.dart';
+
 
 
 
@@ -355,20 +357,7 @@ class DashboardPage extends StatelessWidget {
 
 
 
-  Widget dashboardScrollItem (BuildContext context,){
-    return Container(
-      padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0,0.0),
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          _buildListView(30.0)
 
-        ],
-
-      ),
-
-    );
-  }
 
   Widget trainingSessionSection(BuildContext context,){
     return Container(
@@ -420,11 +409,11 @@ class DashboardPage extends StatelessWidget {
             headerSection(),
             menuSection(context,90),
             actionPlanSection(context),
-            dashboardScrollItem(context),
+            actionPlanDashboardSlider(context),
             trainingSessionSection(context),
-            dashboardScrollItem(context),
+            trainingSessiondDashboardfSlider(context),
             browseCourseSection(context),
-            dashboardScrollItem(context),
+            browseCourseDashboardSlider(context),
 
 
 
@@ -517,58 +506,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-  _buildListView(double height) {
-    return Container(
-      height: 300.0,
-      margin: EdgeInsets.only(top: 10.0),
-      child: ListView.builder(
-        itemCount:6,
-        scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.only(left:2.0),
-        physics: BouncingScrollPhysics(),
-        itemBuilder: (context, index) {
-          return Padding(
-              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
-              child: SizedBox(
-                width: 200.0,
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12.0),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black12,
-                                offset: Offset(2.0, 10.0),
-                                blurRadius: 10.0)
-                          ]),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-//                        SizedBox(
-//                          height: 5.0,
-//                        ),
-//                        Image.asset(
-//                          "assets/imgs/perfume_4.png",
-//                          height: 80.0,
-//                          width: 80.0,
-//                        ),
-//                        SizedBox(
-//                          height: 5.0,
-//                        ),
 
-                      ],
-                    )
-                  ],
-                ),
-              ));
-        },
-      ),
-    );
-  }
 
 }
 

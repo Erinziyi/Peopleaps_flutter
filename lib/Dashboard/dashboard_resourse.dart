@@ -356,10 +356,11 @@ _buildBrowseCourseDashboardSlider(double height) {
                       child:Image.asset('assets/comptia_course_picture.jpg', height: 100.0,fit:BoxFit.fill),
                     ),
                     new Container(
+                      margin: EdgeInsets.only(left: 2.0),
                       child: Row(
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical:5.0,),
+                            padding: const EdgeInsets.symmetric(vertical:2.0,),
                             child: new LinearPercentIndicator(
                               padding: const EdgeInsets.symmetric(vertical: 2.0),
                               width:195,
@@ -371,9 +372,58 @@ _buildBrowseCourseDashboardSlider(double height) {
                           ),
 
                         ],
-
                       ),
+                    ),
+                    new Container(
 
+                      padding: EdgeInsets.all(10.0),
+                      child: new Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
+                              new Text('Goal Essential - Self Mastery & personal Effectiveness',
+                                style:new TextStyle(
+                                  color:Colors.black,
+                                  fontSize:12.0,
+                                  fontFamily:'Roboto',
+                                ),
+                              ),
+                            ],
+                          ),
+                          new Container(
+                            margin: const EdgeInsets.only(top: 20.0),
+                            child: new Row(
+                              children: <Widget>[
+                                new Text('Expiry:15 Nov 2019',
+                                  style:new TextStyle(
+                                    color:Colors.grey[400],
+                                    fontSize:12.0,
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          new Container(
+                            margin: const EdgeInsets.only(top: 20.0),
+                            child: new Row(
+                              children: <Widget>[
+                                new Text('100% Complete',
+                                  style:new TextStyle(
+                                    color:Colors.grey[400],
+                                    fontSize:12.0,
+                                    fontFamily:'Roboto',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                        ],
+                      ),
                     ),
                   ],
                 )

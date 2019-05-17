@@ -43,14 +43,14 @@ class DashboardPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0,10.0),
+            padding: const EdgeInsets.fromLTRB(6.0, 0.0, 0.0,10.0),
             child: new CircleAvatar(
               backgroundImage: new AssetImage('assets/profile_pic.png'),
               radius:24.0,
             ),
           ),
           Container(
-            padding: new EdgeInsets.only(left:20.0),
+            padding: new EdgeInsets.only(left:10.0),
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -93,7 +93,11 @@ class DashboardPage extends StatelessWidget {
 
     //Column one
 
-    MenuItem course = new MenuItem();
+    MenuItem course = new MenuItem(
+
+
+
+    );
     course.label  = "Course";
     course.image  = "assets/icon_course.png";
     menuItem.add(course);
@@ -513,37 +517,11 @@ class DashboardPage extends StatelessWidget {
 class MenuItem {
   String image;
   String label;
-  MenuItem({this.image, this.label});
+  MenuItem({this.image, this.label,});
 }
 
 
-////Slider
-//class DashboardHorizontalSlider extends StatefulWidget {
-//
-////  List<CourseItem> courseItems = new List<CourseItem>();
-////  BuildContext context;
-////  DashboardHorizontalSlider({this.courseItems, this.context, Key key}) : super(key: key);
-//
-//
-//  @override
-//  _DashboardHorizontalSliderState createState() => new _DashboardHorizontalSliderState();
-//}
-//
-//class _DashboardHorizontalSliderState extends State<DashboardHorizontalSlider> with TickerProviderStateMixin {
-//  buildCardListView(double height){
-//
-//  }
-//
-//  @override
-//  Widget build(BuildContext context) {
-//    // TODO: implement build
-//    return null;
-//  }
-//
-//
-//
-//
-//}
+
 
 
 

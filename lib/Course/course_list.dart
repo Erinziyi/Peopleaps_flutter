@@ -15,12 +15,42 @@ class CourseListPage extends StatefulWidget{
 class _CourseListPageState extends State<CourseListPage>{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Course'),
+    return new DefaultTabController(
+      length: 4,
+      child: new Scaffold(
+        appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
+          backgroundColor: Colors.blueAccent[400],
+
+          title: Text('Course List' ,
+            style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.white,
+            ),
+
+          ),
+
+          bottom: TabBar(
+            isScrollable: true,
+            unselectedLabelColor: Colors.grey[300],
+            indicatorColor: Colors.white,
+            tabs: [
+              Tab(child: new Text('ALL',style: TextStyle(fontSize: 12.0,color: Colors.white),),),
+              Tab(text:'INCOMPLETE',),
+              Tab(text:'COMPLETED',),
+              Tab(text:'EXPIRED',),
+            ],
+          ),
+        ),
+
       ),
 
+
+
     );
+
   }
 
 }

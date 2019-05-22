@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_app/ActionPlan/action_plan.dart';
+import 'package:flutter_login_app/Course/course_list.dart';
+import 'package:flutter_login_app/Discussion/discussion_topic_list.dart';
+import 'package:flutter_login_app/Notificaition/notification_list.dart';
+import 'package:flutter_login_app/Report/report.dart';
+import 'package:flutter_login_app/Training/training_session.dart';
 
 import 'dashboard_resourse.dart';
 
@@ -93,23 +99,22 @@ class DashboardPage extends StatelessWidget {
 
     //Column one
 
-    MenuItem course = new MenuItem(
-
-
-
-    );
+    MenuItem course = new MenuItem();
     course.label  = "Course";
     course.image  = "assets/icon_course.png";
+    course.gotoActivity = CourseListPage.tag;
     menuItem.add(course);
 
     MenuItem training = new MenuItem();
     training.label  = "Training";
     training.image  = "assets/icon_training.png";
+    training.gotoActivity = TrainingSessionPage.tag;
     menuItem.add(training);
 
     MenuItem discussion = new MenuItem();
     discussion.label  = "Discussion";
     discussion.image  = "assets/icon_discussion.png";
+    discussion.gotoActivity = DiscussionTopicListPage.tag;
     menuItem.add(discussion);
 
     //Column two
@@ -117,16 +122,19 @@ class DashboardPage extends StatelessWidget {
     MenuItem notification = new MenuItem();
     notification.label  = "Notification";
     notification.image  = "assets/icon_notification.png";
+    notification.gotoActivity =  NotificationPage.tag;
     menuItemTwo.add(notification);
 
     MenuItem actionplan = new MenuItem();
     actionplan.label  = "Action Plan";
     actionplan.image  = "assets/icon_action_plan.png";
+    actionplan.gotoActivity =  ActionPlanPage.tag;
     menuItemTwo.add(actionplan);
 
     MenuItem report = new MenuItem();
     report.label  = "Report";
     report.image  = "assets/icon_report.png";
+    report.gotoActivity = ReportPage.tag;
     menuItemTwo.add(report);
 
 
@@ -146,7 +154,7 @@ class DashboardPage extends StatelessWidget {
               child: new Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: generateMenuItems(menuItem),
+                children: generateMenuItems(context, menuItem),
               ),
             ),
             new Container(
@@ -154,7 +162,7 @@ class DashboardPage extends StatelessWidget {
               child: new Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: generateMenuItems(menuItemTwo),
+                children: generateMenuItems(context, menuItemTwo),
               ),
             )
           ],
@@ -359,10 +367,6 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-
-
-
-
   Widget trainingSessionSection(BuildContext context,){
     return Container(
       padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0,0.0),
@@ -379,7 +383,6 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-
   Widget browseCourseSection (BuildContext context,){
     return Container(
       padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0,0.0),
@@ -394,15 +397,6 @@ class DashboardPage extends StatelessWidget {
 
     );
   }
-
-
-
-
-
-
-
-
-
 
   //body Dashboard
   Widget bodyScrollviewContent(BuildContext context) {
@@ -427,18 +421,12 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
-
-
-
-
-
-
   //This function is to handle menu rendering from Array
-  generateMenuItems(List<MenuItem> menuItems)
+  generateMenuItems(BuildContext context, List<MenuItem> menuItems)
   {
     List<Widget> list = new List<Widget>();
     for(var i = 0; i < menuItems.length; i++){
-      list.add(buildButtonColumn(Image.asset(menuItems[i].image, height:60.0,width:60.0), menuItems[i].label));
+      list.add(buildButtonColumn(context, Image.asset(menuItems[i].image, height:60.0,width:60.0), menuItems[i].label,menuItems[i].gotoActivity));
 
     }
 
@@ -446,12 +434,21 @@ class DashboardPage extends StatelessWidget {
   }
 
 // Resourse Reuse
-  Column buildButtonColumn(assetImage,String label){
+  Column buildButtonColumn(BuildContext context, assetImage,String label, String gotoActivity ){
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        assetImage,
+        Container(
+
+          child:FlatButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(gotoActivity);
+            },
+            child: assetImage,
+
+          ),
+        ),
         Container(
           margin: const EdgeInsets.only(top:8),
           child: new Text(
@@ -509,22 +506,14 @@ class DashboardPage extends StatelessWidget {
       ],
     );
   }
-
-
-
 }
 
 class MenuItem {
   String image;
   String label;
-  MenuItem({this.image, this.label,});
+  String gotoActivity;
+  MenuItem({this.image, this.label, this.gotoActivity });
 }
-
-
-
-
-
-
 //
 //class CourseItem {
 //  String _title;

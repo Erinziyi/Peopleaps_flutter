@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
 
-class NotificationPage extends StatefulWidget {
-  static String tag ='notification-page';
+class  NotificationPage extends StatelessWidget {
+  static String tag = 'notification-page';
 
-  @override
-  _NotificationPageState createState() => _NotificationPageState();
-}
-
-class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,13 +17,13 @@ class _NotificationPageState extends State<NotificationPage> {
           style: TextStyle(
             fontSize: 16.0,
             color: Colors.white,
+
           ),
+
         ),
-
-
-
       ),
 
     );
   }
+
 }

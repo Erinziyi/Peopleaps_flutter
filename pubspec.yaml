@@ -59,6 +59,7 @@ flutter:
     - assets/icon_date.png
     - assets/course_picture.png
     - assets/comptia_course_picture.jpg
+    - assets/course_picture_1.png
   fonts:
      - family: Roboto
        fonts:

@@ -113,6 +113,7 @@ _buildActionPlanDashboardSlider(double height) {
                                         style:new TextStyle(
                                           color:Colors.black,
                                           fontSize: 12.0,
+
                                         ),
                                       ),
                                     ],
@@ -125,7 +126,7 @@ _buildActionPlanDashboardSlider(double height) {
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

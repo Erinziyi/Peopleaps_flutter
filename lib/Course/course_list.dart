@@ -162,10 +162,6 @@ class _CourseListContentState extends State<CourseListContent> {
                                          ],
                                        ),
                                      ),
-
-
-
-
                                    ],
 
                                  ),

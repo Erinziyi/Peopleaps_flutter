@@ -60,6 +60,7 @@ flutter:
     - assets/course_picture.png
     - assets/comptia_course_picture.jpg
     - assets/course_picture_1.png
+    - assets/peopleaps_notification_icon.png
   fonts:
      - family: Roboto
        fonts:

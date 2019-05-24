@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_app/ActionPlan/action_plan.dart';
 import 'package:flutter_login_app/Course/course_list.dart';
 import 'package:flutter_login_app/Discussion/discussion_topic_list.dart';
-import 'package:flutter_login_app/Notificaition/notification_list.dart';
+import 'package:flutter_login_app/Notificaition/notification_view.dart';
 import 'package:flutter_login_app/Report/report.dart';
 import 'package:flutter_login_app/Training/training_session.dart';
 

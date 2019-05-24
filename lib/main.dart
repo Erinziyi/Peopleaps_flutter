@@ -5,7 +5,7 @@ import 'package:flutter_login_app/login_page.dart';
 import 'ActionPlan/action_plan.dart';
 import 'Course/course_list.dart';
 import 'Discussion/discussion_topic_list.dart';
-import 'Notificaition/notification_list.dart';
+import 'Notificaition/notification_view.dart';
 import 'Report/report.dart';
 import 'Training/training_session.dart';
 

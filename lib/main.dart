@@ -8,6 +8,7 @@ import 'Discussion/discussion_topic_list.dart';
 import 'Notificaition/notification_view.dart';
 import 'Report/report.dart';
 import 'Training/training_session.dart';
+import 'dart:ui';
 
 void main() => runApp(MyApp());
 

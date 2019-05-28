@@ -63,12 +63,14 @@ flutter:
     - assets/course_picture_1.png
     - assets/peopleaps_notification_icon.png
     - assets/training_session_background.png
+    - assets/icon_location.png
   fonts:
      - family: Roboto
        fonts:
          - asset: fonts/roboto_regular.ttf
          - asset: fonts/roboto_medium.ttf
          - asset: fonts/roboto_bold.ttf
+           weight: 700
 
      - family: Paytone one
        fonts:

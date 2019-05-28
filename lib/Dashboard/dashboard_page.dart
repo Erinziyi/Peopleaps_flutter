@@ -33,7 +33,7 @@ class DashboardPage extends StatelessWidget {
                 ),
               ),
             ),
-            bodyScrollviewContent(context)
+            bodyScrollviewContent(context),
           ],
         ),
       ),

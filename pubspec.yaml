@@ -64,6 +64,7 @@ flutter:
     - assets/peopleaps_notification_icon.png
     - assets/training_session_background.png
     - assets/icon_location.png
+    - assets/icon_barcode_scanner.png
   fonts:
      - family: Roboto
        fonts:

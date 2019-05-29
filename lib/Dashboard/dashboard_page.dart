@@ -5,7 +5,6 @@ import 'package:flutter_login_app/Discussion/discussion_topic_list.dart';
 import 'package:flutter_login_app/Notificaition/notification_view.dart';
 import 'package:flutter_login_app/Report/report.dart';
 import 'package:flutter_login_app/Training/training_session.dart';
-
 import 'dashboard_resourse.dart';
 
 
@@ -349,9 +348,6 @@ class DashboardPage extends StatelessWidget {
                                   fontFamily:'Roboto',
                                 ),
                               ),
-
-
-
                             ],
                           ),
                         ],

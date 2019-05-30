@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_app/Material/background_ui.dart';
+import 'package:flutter_login_app/Material/font.dart';
 import 'package:flutter_login_app/Training/training_session_checkout.dart';
 
 
@@ -33,6 +34,7 @@ class TrainingSessionPage extends StatelessWidget {
       body:new Container(
         constraints: new BoxConstraints.expand(),
         child: new Stack(
+
           children: <Widget>[
             _getBackground(),
             _getGradient(),
@@ -83,12 +85,12 @@ Container _buildCardContent(){
                     color: Colors.white,
                     elevation: 8.0,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: new InkWell(
                       onTap:(){
                         Navigator.of(context).pushNamed(TrainingSessionCheckoutPage.tag);
-                      },
+                        },
 
                       child: new Container(
                         height: 200.0,
@@ -126,7 +128,7 @@ Container cardContentOne(BuildContext context,){
           padding: const EdgeInsets.fromLTRB(15.0,15.0, 15.0,0.0),
           child: new Column(
             children: <Widget>[
-              buildContentTextLabel('Product Training Course'),
+              buildContentTextLabelBold('Product Training Course'),
             ],
           ),
         ),
@@ -170,7 +172,7 @@ Container cardContentTwo(BuildContext context,){
                 padding: const EdgeInsets.fromLTRB(0.0, 30.0, 0.0,0.0),
                 child: new Column(
                   children: <Widget>[
-                    buildContentTextLabel('Start Date'),
+                    buildContentTextLabelBold('Start Date'),
                     new Text("10/2/2019",
                       style:new TextStyle(
                         color:Colors.black,
@@ -197,7 +199,7 @@ Container cardContentTwo(BuildContext context,){
                 child: new Column(
 
                   children: <Widget>[
-                    buildContentTextLabel('End Date'),
+                    buildContentTextLabelBold('End Date'),
                     new Text("10/2/2019",
                       style:new TextStyle(
                         color:Colors.black,
@@ -237,7 +239,7 @@ Container cardContentThree(BuildContext context,){
                 child: new Column(
 
                   children: <Widget>[
-                    buildContentTextLabel('Location'),
+                    buildContentTextLabelBold('Location'),
                     new Text('Peoplelogy ',
                       overflow: TextOverflow.clip,
                       softWrap: true,
@@ -285,36 +287,6 @@ Container cardContentThree(BuildContext context,){
 
 
 
-
-
-Column buildContentTextLabel(String textlabel){
-  return Column (
-
-    children: <Widget>[
-      new Container(
-        child: new Row(
-
-          children: <Widget>[
-            new Text(
-              textlabel,
-              textAlign: TextAlign.start,
-              overflow: TextOverflow.clip,
-              softWrap: false,
-              maxLines: 2,
-              style: TextStyle(
-                fontSize:13,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.bold,
-                color:Colors.black,
-
-              ),
-            ),
-          ],
-        ),
-      )
-    ],
-  );
-}
 
 
 

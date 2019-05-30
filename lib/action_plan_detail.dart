@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ActionPlanPage extends StatefulWidget {
-  static String tag = 'actionplan-page';
+class ActionPlanDetailPage extends StatelessWidget {
+  static String tag = 'actionplandetail-page';
 
-
-  @override
-  _ActionPlanPageState createState() => _ActionPlanPageState();
-}
-
-class _ActionPlanPageState extends State<ActionPlanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +16,6 @@ class _ActionPlanPageState extends State<ActionPlanPage> {
           style: TextStyle(
             fontSize: 16.0,
             color: Colors.white,
-
           ),
 
         ),

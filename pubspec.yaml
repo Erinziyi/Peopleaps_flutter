@@ -62,9 +62,35 @@ flutter:
     - assets/comptia_course_picture.jpg
     - assets/course_picture_1.png
     - assets/peopleaps_notification_icon.png
-    - assets/training_session_background.png
     - assets/icon_location.png
     - assets/icon_barcode_scanner.png
+    - assets/icon_trainer.png
+    - assets/icon_training_provider.png
+    - assets/icon_training_session.png
+    - assets/icon_type_course.png
+    - assets/action_plan_completed_button.png
+    - assets/action_plan_incomplete_button.png
+    - assets/assesment_completed.png
+    - assets/change_password.png
+    - assets/forget_password.png
+    - assets/get_started_action_plan.png
+    - assets/get_started_evaluation.png
+    - assets/get_started_finish.png
+    - assets/icon_action_plan_detail.png
+    - assets/icon_barcode_key_in.png
+    - assets/icon_camera_scan.png
+    - assets/module_list_article.png
+    - assets/module_list_evaluation.png
+    - assets/module_list_quiz.png
+    - assets/module_list_video.png
+    - assets/pdf_icon.png
+    - assets/pre_assessment_background.png
+    - assets/slider_1.png
+    - assets/slider_2.png
+    - assets/slider_3.png
+    - assets/slider_4.png
+    - assets/slider_5.png
+
   fonts:
      - family: Roboto
        fonts:

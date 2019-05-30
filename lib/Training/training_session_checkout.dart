@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_app/Material/background_ui.dart';
+import 'package:flutter_login_app/Material/font.dart';
 import 'package:flutter_login_app/Training/training_session.dart';
-
 
 
 class TrainingSessionCheckoutPage extends StatelessWidget {
   static String tag = 'trainingsessioncheckout-page';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,14 +15,11 @@ class TrainingSessionCheckoutPage extends StatelessWidget {
           color: Colors.white, //change your color here
         ),
         backgroundColor: Colors.blueAccent[400],
-
-        title: Text('Product Training ' ,
+        title: Text('Product Training Lesson ' ,
           style: TextStyle(
             fontSize: 16.0,
             color: Colors.white,
-
           ),
-
         ),
       ),
       body:new Container(
@@ -31,40 +29,109 @@ class TrainingSessionCheckoutPage extends StatelessWidget {
             _getBackground(),
             _getGradient(),
             trainingSessionDetail(context,90),
-
-
-
           ],
-
-
         ),
-
       ),
-      
-
-
     );
   }
+
+
+
 }
 
 
 
 Widget trainingSessionDetail(BuildContext context, int width_percent){
-  return new Card(
-    color: Colors.white,
-    elevation: 4.0,
+  return new Container(
+    alignment: AlignmentDirectional.center,
+    child: new Card(
+      color: Colors.white,
+      elevation: 4.0,
+      child: new Container(
+        padding:EdgeInsets.all(5.0),
+        height:500.00,
+        width: MediaQuery.of(context).size.width * (width_percent / 100),
+        child: new Container(
+          child: new Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10.0,15.0, 0.0,0.0),
+                child: new Column(
+                  children: <Widget>[
+                    new  Image.asset('assets/icon_trainer.png', height: 30.0,width:30.0 ),
+                  ],
+                ),
+              ),
 
-    child: Container(
-      margin: const EdgeInsets.all(8.0),
-      height:400.0,
-      width: MediaQuery.of(context).size.width * (width_percent / 100),
+              Container(
+                  child: new Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(15.0,15.0, 15.0,0.0),
+                        child: new Column(
+                          children: <Widget>[
+                            buildContentTextLabelBold('Trainer'),
+                            buildContentTextLabelRegular('Inderjit'),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left:150.0),
+                        child: new Column(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(10.0,15.0, 0.0,0.0),
+                              child: new Column(
+                                children: <Widget>[
+                                  new Text('Completed',
+                                    style:new TextStyle(
+                                      color: Colors.lightGreenAccent[700],
+                                      fontSize:12.0,
+                                      fontFamily:'Roboto',
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+
+              ),
+            ],
+
+          ),
+
+
+
+
+        ),
+
+
+
+      ),
+
+
+
 
 
 
 
     ),
+
+
+
+
+
+
   );
 }
+
+
 
 
 

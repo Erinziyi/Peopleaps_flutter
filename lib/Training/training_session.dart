@@ -40,8 +40,6 @@ class TrainingSessionPage extends StatelessWidget {
             _getGradient(),
             TrainingSessionCard(),
 
-
-
           ],
 
 

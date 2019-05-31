@@ -31,6 +31,8 @@ class CourseListPage extends StatelessWidget {
 
             indicatorColor: Colors.white,
             labelPadding: EdgeInsets.only(right: 10.0, left: 10.0),
+
+
             indicatorSize: TabBarIndicatorSize.tab,
 
             tabs: [

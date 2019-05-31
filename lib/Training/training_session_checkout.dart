@@ -64,42 +64,42 @@ Widget trainingSessionDetail(BuildContext context, int width_percent){
               ),
 
               Container(
-                  child: new Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(15.0,15.0, 15.0,0.0),
-                        child: new Column(
-                          children: <Widget>[
-                            buildContentTextLabelBold('Trainer'),
-                            buildContentTextLabelRegular('Inderjit'),
-                          ],
-                        ),
+                child: new Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(15.0,15.0, 15.0,0.0),
+                      child: new Column(
+                        children: <Widget>[
+                          buildContentTextLabelBold('Trainer'),
+                          buildContentTextLabelRegular('Inderjit'),
+                        ],
                       ),
-                      Container(
-                        margin: const EdgeInsets.only(left:150.0),
-                        child: new Column(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(10.0,15.0, 0.0,0.0),
-                              child: new Column(
-                                children: <Widget>[
-                                  new Text('Completed',
-                                    style:new TextStyle(
-                                      color: Colors.lightGreenAccent[700],
-                                      fontSize:12.0,
-                                      fontFamily:'Roboto',
-                                    ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(left:150.0),
+                      child: new Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(10.0,15.0, 0.0,0.0),
+                            child: new Column(
+                              children: <Widget>[
+                                new Text('Completed',
+                                  style:new TextStyle(
+                                    color: Colors.lightGreenAccent[700],
+                                    fontSize:12.0,
+                                    fontFamily:'Roboto',
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
 
               ),
             ],
@@ -162,8 +162,6 @@ Container _getBackground(){
 
   );
 }
-
-
 
 
 

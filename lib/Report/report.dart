@@ -9,41 +9,79 @@ class ReportPage extends StatefulWidget {
   @override
   _ReportPageState createState() => _ReportPageState();
 }
-ScrollController _controller;
-class _ReportPageState extends State<ReportPage> {
 
+ScrollController _controller;
+
+class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMixin {
+  TabController _tabController;
+  ScrollController _scrollViewController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: 3);
+    _scrollViewController = ScrollController(initialScrollOffset: 0.0);
+  }
+
+
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    _scrollViewController.dispose();
+    super.dispose();
+  }
 
   double _imageHeight = 256.0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold (
-      appBar: AppBar (
-        iconTheme: IconThemeData (
+      appBar: AppBar(
+        iconTheme: IconThemeData(
           color: Colors.white, //change your color here
         ),
         backgroundColor: Colors.blueAccent[400],
 
-        title: Text ('Report',
-          style: TextStyle (
+        title: Text('Report' ,
+          style: TextStyle(
             fontSize: 16.0,
             color: Colors.white,
-
           ),
 
         ),
       ),
-      body: new Center(
-        child: CustomScrollView(
-          controller: _controller,
 
+      body: new Center(
+        child: new Container(
+          child: CustomScrollView(
+            controller: _controller,
+            slivers:<Widget>[
+              SliverAppBar(
+                  pinned: true,
+                  expandedHeight: 250.0,
+                  floating: true,
+                flexibleSpace: FlexibleSpaceBar(
+
+                 ),
+
+              ),
+            ]
+          ),
         ),
       ),
+
+
+
+
 
 
 
     );
   }
+
+
+
   Widget _buildIamge() {
     return new ClipPath(
       clipper: new DialogonalClipper(),
@@ -60,58 +98,19 @@ class _ReportPageState extends State<ReportPage> {
   }
 
 
-  Widget _buildProfileRow() {
-    return new Padding(
-      padding: new EdgeInsets.only(left: 16.0, top: _imageHeight / 2.5),
-      child: new Row(
-        children: <Widget>[
-          new CircleAvatar(
-            minRadius: 24.0,
-            maxRadius: 24.0,
-            backgroundImage: new AssetImage('assets/profile_pic.png'),
-          ),
-          new Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                new Text(
-                  'Erin',
-                  style: new TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400),
-                ),
 
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
-  Widget _buildResultRow(){
-    return Container(
-      child: new Row(
-        children: <Widget>[
-          new Row(
-            children: <Widget>[
 
-            ],
 
-          ),
-        ],
-      ),
 
-    );
 
-  }
+
 
 
 
 }
+
+
 
 
 

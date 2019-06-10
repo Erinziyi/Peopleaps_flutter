@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as Math;
+
 import 'package:flutter/widgets.dart';
-import 'package:flutter_login_app/Material/progress_card.dart';
+
 
 class ReportPage extends StatefulWidget {
   ReportPage({Key key}) : super(key: key);
@@ -19,11 +19,9 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 3);
+    _tabController = TabController(vsync: this, length: 2);
     _scrollViewController = ScrollController(initialScrollOffset: 0.0);
   }
-
-
 
   @override
   void dispose() {
@@ -32,11 +30,11 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
     super.dispose();
   }
 
-  double _imageHeight = 256.0;
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold (
+    return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
           color: Colors.white, //change your color here
@@ -51,64 +49,96 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
 
         ),
       ),
-
-      body: new Center(
-        child: new Container(
-          child: CustomScrollView(
-            controller: _controller,
-            slivers:<Widget>[
+      body: DefaultTabController(
+        length: 3,
+        child: NestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
               SliverAppBar(
-                  pinned: true,
-                  expandedHeight: 250.0,
-                  floating: true,
+                expandedHeight: 200.0,
+                floating:true,
+                pinned: false,
+                automaticallyImplyLeading: false,
+
                 flexibleSpace: FlexibleSpaceBar(
 
-                 ),
+                    background: Image.network(
+                      "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
 
+                      fit: BoxFit.cover,
+                    )),
+                backgroundColor: Colors.transparent,
               ),
-            ]
+              SliverPersistentHeader(
+
+                delegate: _SliverAppBarDelegate(
+                  TabBar(
+                    labelColor: Colors.blueAccent,
+                    indicatorColor:Colors.blueAccent,
+                    unselectedLabelColor: Colors.grey,
+                    tabs: [
+                      Tab(child: new Text('ACCESS LOG',style: TextStyle(fontSize: 12.0,),),),
+                      Tab(child: new Text('QUIZ',style: TextStyle(fontSize: 12.0,),),),
+                      Tab(child: new Text('ASSESMENT',style: TextStyle(fontSize: 12.0,),),),
+                    ],
+                  ),
+                ),
+                pinned: true,
+              ),
+            ];
+          },
+          body: Center(
+            child: Text("Sample text"),
           ),
         ),
       ),
-
-
-
-
-
-
-
     );
   }
-
-
-
-  Widget _buildIamge() {
-    return new ClipPath(
-      clipper: new DialogonalClipper(),
-      child: new Container(
-        decoration: new BoxDecoration(
-          color: Colors.lightBlueAccent,
-
-        ),
-        height: _imageHeight,
-
-
-      ),
-    );
-  }
-
-
-
-
-
-
-
-
-
-
-
 
 }
+
+
+
+
+
+
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  _SliverAppBarDelegate(this._tabBar);
+
+  final TabBar _tabBar;
+
+  @override
+  double get minExtent => _tabBar.preferredSize.height;
+  @override
+  double get maxExtent => _tabBar.preferredSize.height;
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return new Container(
+      child: _tabBar,
+    );
+  }
+
+  @override
+  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
+    return false;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -122,7 +152,7 @@ class DialogonalClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = new Path();
-    path.lineTo(0.0, size.height - 60.0);
+    path.lineTo(0.0, size.height -120.0);
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0.0);
     path.close();

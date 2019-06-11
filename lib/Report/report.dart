@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/widgets.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
+
+import 'access_log_report_detail.dart';
 
 
 class ReportPage extends StatefulWidget {
@@ -19,7 +22,7 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 2);
+    _tabController = TabController(vsync: this, length: 3);
     _scrollViewController = ScrollController(initialScrollOffset: 0.0);
   }
 
@@ -55,24 +58,31 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[
               SliverAppBar(
-                expandedHeight: 200.0,
+                expandedHeight: 300.0,
                 floating:true,
                 pinned: false,
+                snap: true,
                 automaticallyImplyLeading: false,
 
                 flexibleSpace: FlexibleSpaceBar(
 
-                    background: Image.network(
-                      "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
+                    background: new Stack(
+                      children: <Widget>[
+                        _buildHeader(context),
 
-                      fit: BoxFit.cover,
+                      ],
+
+
+
                     )),
                 backgroundColor: Colors.transparent,
               ),
-              SliverPersistentHeader(
+              SliverPersistentHeader (
 
                 delegate: _SliverAppBarDelegate(
+
                   TabBar(
+
                     labelColor: Colors.blueAccent,
                     indicatorColor:Colors.blueAccent,
                     unselectedLabelColor: Colors.grey,
@@ -83,18 +93,130 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
                     ],
                   ),
                 ),
+
                 pinned: true,
+
               ),
             ];
           },
-          body: Center(
-            child: Text("Sample text"),
-          ),
+         body: new TabBarView(
+             children: [
+               accessLog(context),
+               accessLog(context),
+               accessLog(context),
+
+             ],
+         ),
         ),
+
       ),
     );
   }
 
+}
+
+Container _buildHeader(BuildContext context){
+  return Container (
+//    margin: EdgeInsets.only(top:50.0),
+    height: 300.0,
+    child: Stack(
+      children: <Widget>[
+        Container(
+
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [Colors.lightBlueAccent, Colors.lightBlueAccent[700]]
+            ),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 40.0, left: 40.0, right: 40.0, bottom: 10.0),
+          child: Material(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 5.0,
+            color: Colors.white,
+            child: Column(
+              children: <Widget>[
+                SizedBox(height:50.0,),
+                Text("John Doe", style: Theme.of(context).textTheme.title,),
+                SizedBox(height: 5.0,),
+                Text("UI/UX designer"),
+                SizedBox(height: 10.0,),
+            Container(
+              height: 80.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  new CircularPercentIndicator(
+                    radius: 55.0,
+                    lineWidth: 4.0,
+                    percent: 0.60,
+                    center: new Text("4/14"),
+                    progressColor: Colors.lightGreenAccent[400],
+                  ),
+                  new Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30.0),
+                  ),
+                  new CircularPercentIndicator(
+                    radius: 55.0,
+                    lineWidth: 4.0,
+                    percent: 0.90,
+                    center: new Text("10/14"),
+                    progressColor: Colors.redAccent[700],
+                  )
+                ],
+              ),
+            ),
+
+                Container(
+                  height:30.0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Text("Completed",style:new TextStyle(
+                        color:Colors.grey,
+                        fontSize: 14.0,),
+
+                      ),
+                      new Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 25.0),
+                      ),
+                      new Text("Incomplete",style:new TextStyle(
+                        color:Colors.grey,
+                        fontSize: 14.0,),
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+            ),
+            ),
+         ),
+        Container(
+          padding: EdgeInsets.only(top:20.0),
+
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Material(
+                elevation: 5.0,
+                shape: CircleBorder(),
+                child: CircleAvatar(
+                  radius: 32.0,
+                  backgroundImage: AssetImage('assets/profile_pic.png'),
+                ),
+              )
+            ],
+
+          ),
+        )
+
+      ],
+    ),
+
+  );
 }
 
 

@@ -9,7 +9,7 @@ import 'Report/report.dart';
 import 'Training/training_session.dart';
 import 'Training/training_session_checkout.dart';
 import 'action_plan_detail.dart';
-import 'package:responsive_text_field/responsive_text_field.dart';
+
 
 void main() => runApp(MyApp());
 

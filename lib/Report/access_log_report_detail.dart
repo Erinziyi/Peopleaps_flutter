@@ -4,7 +4,7 @@ Widget accessLog (BuildContext context){
   return ListView.builder(
     scrollDirection: Axis.vertical,
 
-    itemCount: 10,
+    itemCount: 30,
     itemBuilder: (BuildContext context, int index) {
       return makeCard;
     },

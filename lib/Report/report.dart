@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'dart:math' as math;
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import 'access_log_report_detail.dart';
@@ -13,70 +16,69 @@ class ReportPage extends StatefulWidget {
   _ReportPageState createState() => _ReportPageState();
 }
 
-ScrollController _controller;
+
 
 class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMixin {
-  TabController _tabController;
   ScrollController _scrollViewController;
+  TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 3);
-    _scrollViewController = ScrollController(initialScrollOffset: 0.0);
+    _scrollViewController = new ScrollController();
+    _tabController = new TabController(vsync: this, length: 3);
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
     _scrollViewController.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.white, //change your color here
-        ),
-        backgroundColor: Colors.blueAccent[400],
+    return new DefaultTabController(
+      length: 3,
 
-        title: Text('Report' ,
-          style: TextStyle(
-            fontSize: 16.0,
-            color: Colors.white,
+      child: new Scaffold(
+        appBar: AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
+          backgroundColor: Colors.blueAccent[400],
+
+          title: Text('Report ' ,
+            style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.white,
+            ),
+
           ),
 
+
         ),
-      ),
-      body: DefaultTabController(
-        length: 3,
-        child: NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+
+        body: new NestedScrollView(
+          controller: _scrollViewController,
+          headerSliverBuilder:(BuildContext context, bool innerBoxIsScrolled){
             return <Widget>[
-              SliverAppBar(
+              new SliverAppBar(
+
                 expandedHeight: 300.0,
-                floating:true,
-                pinned: false,
-                snap: true,
+                floating:false,
+                pinned:false,
+                primary: true,
+//                     snap: true,
                 automaticallyImplyLeading: false,
 
                 flexibleSpace: FlexibleSpaceBar(
-
-                    background: new Stack(
-                      children: <Widget>[
-                        _buildHeader(context),
-
-                      ],
-
-
-
-                    )),
-                backgroundColor: Colors.transparent,
+                  background: _buildHeader(context),
+                ),
+                backgroundColor: Colors.white,
               ),
+
               SliverPersistentHeader (
 
                 delegate: _SliverAppBarDelegate(
@@ -94,23 +96,36 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
                   ),
                 ),
 
-                pinned: true,
+                pinned:false,
 
               ),
-            ];
-          },
-         body: new TabBarView(
-             children: [
-               accessLog(context),
-               accessLog(context),
-               accessLog(context),
 
-             ],
-         ),
+            ];
+
+
+          },
+
+
+
+          body: new Center(
+            child: new TabBarView(
+              children: [
+                accessLog(context),
+                accessLog(context),
+                accessLog(context),
+
+              ],
+
+            ),
+          ),
         ),
+
+
 
       ),
     );
+
+
   }
 
 }
@@ -118,11 +133,10 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
 Container _buildHeader(BuildContext context){
   return Container (
 //    margin: EdgeInsets.only(top:50.0),
-    height: 300.0,
+
     child: Stack(
       children: <Widget>[
         Container(
-
           decoration: BoxDecoration(
             gradient: LinearGradient(
                 colors: [Colors.lightBlueAccent, Colors.lightBlueAccent[700]]
@@ -224,6 +238,7 @@ Container _buildHeader(BuildContext context){
 
 
 
+
 class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   _SliverAppBarDelegate(this._tabBar);
 
@@ -260,27 +275,3 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
 
 
 
-
-
-
-
-
-
-
-
-
-// Background Top Header
-class DialogonalClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = new Path();
-    path.lineTo(0.0, size.height -120.0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(size.width, 0.0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
-}

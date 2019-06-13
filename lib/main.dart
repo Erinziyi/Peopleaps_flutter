@@ -3,6 +3,7 @@ import 'package:flutter_login_app/Dashboard/dashboard_page.dart';
 import 'package:flutter_login_app/login_page.dart';
 import 'ActionPlan/action_plan_list.dart';
 import 'Course/course_list.dart';
+import 'Course/course_list_detail.dart';
 import 'Discussion/discussion_topic_list.dart';
 import 'Notificaition/notification_view.dart';
 import 'Report/report.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
     ReportPage.tag: (context) =>ReportPage(),
     TrainingSessionCheckoutPage.tag: (context) => TrainingSessionCheckoutPage(),
     ActionPlanDetailPage.tag: (context) =>ActionPlanDetailPage(),
+    CourseListDetailPage.tag:(context) =>CourseListDetailPage(),
 
   };
 

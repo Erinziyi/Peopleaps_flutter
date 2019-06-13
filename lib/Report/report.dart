@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'dart:math' as math;
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-
 import 'access_log_report_detail.dart';
 
 
@@ -72,19 +69,14 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
                 primary: true,
 //                     snap: true,
                 automaticallyImplyLeading: false,
-
                 flexibleSpace: FlexibleSpaceBar(
                   background: _buildHeader(context),
                 ),
                 backgroundColor: Colors.white,
               ),
-
               SliverPersistentHeader (
-
                 delegate: _SliverAppBarDelegate(
-
                   TabBar(
-
                     labelColor: Colors.blueAccent,
                     indicatorColor:Colors.blueAccent,
                     unselectedLabelColor: Colors.grey,
@@ -95,18 +87,10 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
                     ],
                   ),
                 ),
-
                 pinned:false,
-
               ),
-
             ];
-
-
           },
-
-
-
           body: new Center(
             child: new TabBarView(
               children: [
@@ -119,20 +103,14 @@ class _ReportPageState extends State<ReportPage>with SingleTickerProviderStateMi
             ),
           ),
         ),
-
-
-
       ),
     );
-
-
   }
-
 }
 
 Container _buildHeader(BuildContext context){
   return Container (
-//    margin: EdgeInsets.only(top:50.0),
+
 
     child: Stack(
       children: <Widget>[
@@ -158,31 +136,31 @@ Container _buildHeader(BuildContext context){
                 SizedBox(height: 5.0,),
                 Text("UI/UX designer"),
                 SizedBox(height: 10.0,),
-            Container(
-              height: 80.0,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  new CircularPercentIndicator(
-                    radius: 55.0,
-                    lineWidth: 4.0,
-                    percent: 0.60,
-                    center: new Text("4/14"),
-                    progressColor: Colors.lightGreenAccent[400],
+                Container(
+                  height: 80.0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new CircularPercentIndicator(
+                        radius: 55.0,
+                        lineWidth: 4.0,
+                        percent: 0.60,
+                        center: new Text("4/14"),
+                        progressColor: Colors.lightGreenAccent[400],
+                      ),
+                      new Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 30.0),
+                      ),
+                      new CircularPercentIndicator(
+                        radius: 55.0,
+                        lineWidth: 4.0,
+                        percent: 0.90,
+                        center: new Text("10/14"),
+                        progressColor: Colors.redAccent[700],
+                      )
+                    ],
                   ),
-                  new Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30.0),
-                  ),
-                  new CircularPercentIndicator(
-                    radius: 55.0,
-                    lineWidth: 4.0,
-                    percent: 0.90,
-                    center: new Text("10/14"),
-                    progressColor: Colors.redAccent[700],
-                  )
-                ],
-              ),
-            ),
+                ),
 
                 Container(
                   height:30.0,
@@ -204,10 +182,10 @@ Container _buildHeader(BuildContext context){
                     ],
                   ),
                 ),
-            ],
+              ],
             ),
-            ),
-         ),
+          ),
+        ),
         Container(
           padding: EdgeInsets.only(top:20.0),
 
@@ -232,13 +210,6 @@ Container _buildHeader(BuildContext context){
 
   );
 }
-
-
-
-
-
-
-
 class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   _SliverAppBarDelegate(this._tabBar);
 

@@ -3,6 +3,7 @@ import 'package:flutter_login_app/Dashboard/dashboard_page.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../login_page.dart';
+import 'course_list_detail.dart';
 
 class CourseListPage extends StatelessWidget {
   static String tag = 'courselist-page';
@@ -92,6 +93,12 @@ class _CourseListContentState extends State<CourseListContent> {
                        child: new Card(
                          color: Colors.white,
                          elevation: 4.0,
+                       child: new InkWell(
+                         onTap:(){
+                           Navigator.of(context).pushNamed(CourseListDetailPage.tag);
+                         },
+
+
                          child: new Container(
                            height: 300.0,
                            child: new Column(
@@ -178,6 +185,7 @@ class _CourseListContentState extends State<CourseListContent> {
                            ),
 
                          ),
+                       ),
 
 
                        ),

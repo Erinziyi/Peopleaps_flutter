@@ -4,12 +4,14 @@ import 'package:path/path.dart';
 
 class CourseListDetailPage extends StatelessWidget {
 
+
   static String tag ='courselistdetail-page';
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(135,206, 250, 1.0),
+      backgroundColor: Colors.blue[200],
+
       appBar: AppBar(
         iconTheme: IconThemeData(
           color: Colors.white, //change your color here
@@ -36,64 +38,68 @@ class CourseListDetailPage extends StatelessWidget {
 
 
 class ModuleListBodyLayout extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    return accessLog(context);
+    return  ModuleListRow();
 
 
   }
 }
 
 
-Widget accessLog (BuildContext context){
-  return ListView.builder(
-    scrollDirection: Axis.vertical,
-    itemExtent: 100.0,
-    itemBuilder: (BuildContext context, int index) {
-      return makeCard;
-    },
+class ModuleListRow extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 120.0,
+      margin: const EdgeInsets.symmetric(
+        vertical: 16.0,
+        horizontal: 24.0,
+      ),
+      child: new Stack(
+        children: <Widget>[
+          moduleListCard,
+          articleThumbnail,
 
-  );
+
+        ],
+      ),
+    );
+  }
 }
 
-
-
-
-
-
-final makeCard = Card(
-  elevation: 8.0,
-  margin: new EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
-  child: Container(
-    decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-    child: makeListTile,
-  ),
-);
-
-final makeListTile = ListTile(
-    contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-    leading: Container(
-      padding: EdgeInsets.only(right: 12.0),
-      decoration: new BoxDecoration(
-          border: new Border(
-              right: new BorderSide(width: 1.0, color: Colors.white24))),
-      child: Icon(Icons.autorenew, color: Colors.white),
+  final articleThumbnail = new Container(
+  margin: new EdgeInsets.symmetric(
+     vertical: 16.0
     ),
-    title: Text(
-      "Introduction to Driving",
-      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-    ),
-    // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),
+   alignment: FractionalOffset.centerLeft,
+   child: new Image(
+     image: new AssetImage("assets/module_list_quiz.png"),
+     height: 80.0,
+     width: 80.0,
 
-    subtitle: Row(
-      children: <Widget>[
-        Icon(Icons.linear_scale, color: Colors.yellowAccent),
-        Text(" Intermediate", style: TextStyle(color: Colors.white))
-      ],
-    ),
-    trailing:
-    Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0));
+   ),
 
 
+
+  );
+
+    final moduleListCard = new Container(
+        height: 120.0,
+        margin: new EdgeInsets.only(left: 46.0),
+        decoration: new BoxDecoration(
+         color: new Color(0xFF1976D2),
+         shape: BoxShape.rectangle,
+        borderRadius: new BorderRadius.circular(20.0),
+        boxShadow: <BoxShadow>[
+        new BoxShadow(
+         color: Colors.black12,
+          blurRadius: 10.0,
+         offset: new Offset(0.0, 10.0),
+        ),
+     ],
+   ),
+  );
 
 

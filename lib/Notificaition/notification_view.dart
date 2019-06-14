@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login_app/Material/GradientAppBar.dart';
 
 import 'package:flutter_login_app/Notificaition/notification_data.dart';
 
@@ -10,7 +11,6 @@ class  NotificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -18,14 +18,17 @@ class  NotificationPage extends StatelessWidget {
         ),
         backgroundColor: Colors.blueAccent[400],
 
-        title: Text('Notification' ,
+        title: Text('Notification ' ,
           style: TextStyle(
             fontSize: 16.0,
             color: Colors.white,
           ),
-          
+
         ),
+
+
       ),
+
       body: NotificatificationBodyLayout(),
 
     );

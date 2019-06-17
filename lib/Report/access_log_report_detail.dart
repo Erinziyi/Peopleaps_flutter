@@ -47,4 +47,6 @@ final makeListTile = ListTile(
       ],
     ),
     trailing:
-    Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0));
+    Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0)
+
+);

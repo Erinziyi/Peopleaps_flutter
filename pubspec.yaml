@@ -28,7 +28,7 @@ dependencies:
   carousel_slider: ^1.3.0
   percent_indicator: ^1.0.16
   flutter_screenutil: ^0.5.2
-  flutter_sticky_header: ^0.3.4
+  sliding_up_panel: ^0.3.4
 
 
 
@@ -83,7 +83,6 @@ flutter:
     - assets/icon_barcode_key_in.png
     - assets/icon_camera_scan.png
     - assets/module_list_article.png
-    - assets/module_list_evaluation.png
     - assets/module_list_quiz.png
     - assets/module_list_video.png
     - assets/pdf_icon.png

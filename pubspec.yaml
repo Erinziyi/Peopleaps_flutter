@@ -84,6 +84,7 @@ flutter:
     - assets/icon_action_plan_detail.png
     - assets/icon_barcode_key_in.png
     - assets/icon_camera_scan.png
+    - assets/module_list_pdfview.png
     - assets/module_list_article.png
     - assets/module_list_quiz.png
     - assets/module_list_video.png

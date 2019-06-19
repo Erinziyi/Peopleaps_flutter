@@ -4,17 +4,15 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 
+
+
 class CourseListDetailPage extends StatelessWidget {
 
 
   static String tag ='courselistdetail-page';
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
-
-
       appBar: AppBar(
         iconTheme: IconThemeData(
           color: Colors.white, //change your color here
@@ -46,8 +44,18 @@ class CourseListDetailPage extends StatelessWidget {
 
   Widget _floatingCollapsed(){
     return Container(
+
       decoration: BoxDecoration(
-        color: Colors.blueAccent,
+        gradient: new LinearGradient(
+            colors: [
+              const Color(0xFF3366FF),
+              const Color(0xFF00CCFF)
+            ],
+            begin: const FractionalOffset(0.0, 0.0),
+            end: const FractionalOffset(1.0, 0.0),
+            stops: [0.0, 1.0],
+            tileMode: TileMode.clamp
+        ),
         borderRadius: BorderRadius.only(topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
       ),
       margin: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 0.0),
@@ -64,7 +72,16 @@ class CourseListDetailPage extends StatelessWidget {
     return Container(
 
       decoration: BoxDecoration(
-          color: Colors.blueAccent,
+          gradient: new LinearGradient(
+              colors: [
+                const Color(0xFF3366FF),
+                const Color(0xFF00CCFF)
+              ],
+              begin: const FractionalOffset(0.0, 0.0),
+              end: const FractionalOffset(1.0, 0.0),
+              stops: [0.0, 1.0],
+              tileMode: TileMode.clamp
+          ),
           borderRadius: BorderRadius.only(topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
 
           boxShadow: [
@@ -83,66 +100,297 @@ class CourseListDetailPage extends StatelessWidget {
   }
 
   Widget _scrollingList(){
-    final titles = ['MS Exel Advanced',
-      'People 4.0 - Self Materry',
-      'SQL Server',
-      'Customer Service Skill',
-      'MS Exel Foundation',
-      'MS Exel Intermediate',
-      'Report Simplified',
-      'Goals Essential - Power Comunication & Interpersonl Comuncation',
-      'People 4.0 - Self Materry',
-      'SQL Server',
-      'Customer Service Skill',
-      'MS Exel Foundation',
-      'MS Exel Intermediate',
-      'Report Simplified',
-      'Goals Essential - Power Comunication & Interpersonl Comuncation',
-      'People 4.0 - Self Materry',
-      'SQL Server',
-      'Customer Service Skill',
-      'MS Exel Foundation',
-      'MS Exel Intermediate',
-      'Report Simplified',
-      'Goals Essential - Power Comunication & Interpersonl Comuncation'];
-
-
     return Container(
-
       //adding a margin to the top leaves an area where the user can swipe
       //to open/close the sliding panel
       margin: const EdgeInsets.only(top: 50.0),
       color: Colors.white,
       child: ListView.builder(
-        itemCount: 50,
-        itemBuilder: (BuildContext context, index){
-          return Card(
-            elevation: 4.0,
-            child: ListTile(
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int i){
+          return Container(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: <Widget>[
+                FadeIn(1,QuizCard ()),
+                FadeIn(1.5,VideoCard ()),
+                FadeIn(2,PdfViewCard ()),
+                FadeIn(2.5, ArticleViewCard ()),
 
-              title: Text(titles[index],style:new TextStyle(
-                  color:Colors.black,
-                  fontSize: 14.0),
-              ),
-              trailing: Icon(Icons.keyboard_arrow_right),
-
+              ],
             ),
-
           );
         },
       ),
+
     );
   }
 
+}
+
+class ArticleViewCard extends StatelessWidget {
+  const  ArticleViewCard({Key key,}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+//    final moduletitles = ['Introduce PEOPLEAPS',
+//      'Whats is PEOPLEAPS?',
+//      'Quiz for PEOPLEAPS',
+//      'Why PEOPLEAPS?'
+//    ];
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Card(
+        color: Colors.white,
+        elevation: 4.0,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Container(
+                  width:55,
+                  height:55,
+                  child: new Container(
+                    decoration: new BoxDecoration(
+                      color: Colors.cyanAccent[400],
+
+                      boxShadow: [
+                        new BoxShadow(
+                          color: Colors.lightBlue[800],
+                          offset: new Offset(3.0,5.0),
+                          blurRadius:15,
+                        ),
+                      ],
+                      shape: BoxShape.circle,
+                      image: new DecorationImage(
+                        image: new AssetImage('assets/module_list_article.png'),),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      child: ListTile(
+                        title: Text('Why PEOPLEAPS?',style:new TextStyle(
+                            color:Colors.black,
+                            fontSize: 14.0),),
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                      ),
+                      height:30,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class PdfViewCard extends StatelessWidget {
+  const  PdfViewCard({Key key,}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+//    final moduletitles = ['Introduce PEOPLEAPS',
+//      'Whats is PEOPLEAPS?',
+//      'Quiz for PEOPLEAPS',
+//      'Why PEOPLEAPS?'
+//    ];
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Card(
+        color: Colors.white,
+        elevation: 4.0,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Container(
+                  width: 55,
+                  height:55,
+                  child: new Container(
+                    decoration: new BoxDecoration(
+                      color: Colors.cyanAccent[400],
+
+                      boxShadow: [
+                        new BoxShadow(
+                          color: Colors.lightBlue[800],
+                          offset: new Offset(3.0,5.0),
+                          blurRadius:15,
+                        ),
+                      ],
+                      shape: BoxShape.circle,
+                      image: new DecorationImage(
+                        image: new AssetImage('assets/module_list_pdfview.png'),),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      child: ListTile(
+                        title: Text('Introduce PEOPLEAPS',style:new TextStyle(
+                            color:Colors.black,
+                            fontSize: 14.0),),
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                      ),
+                      height:30,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class VideoCard extends StatelessWidget {
+  const  VideoCard({Key key,}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+//    final moduletitles = ['Introduce PEOPLEAPS',
+//      'Whats is PEOPLEAPS?',
+//      'Quiz for PEOPLEAPS',
+//      'Why PEOPLEAPS?'
+//    ];
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Card(
+        color: Colors.white,
+        elevation: 4.0,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Container(
+                  width: 55,
+                  height:55,
+                  child: new Container(
+                    decoration: new BoxDecoration(
+                      color: Colors.cyanAccent[400],
+
+                      boxShadow: [
+                        new BoxShadow(
+                          color: Colors.lightBlue[800],
+                          offset: new Offset(3.0, 5.0),
+                          blurRadius:15,
+                        ),
+                      ],
+                      shape: BoxShape.circle,
+                      image: new DecorationImage(
+                        image: new AssetImage('assets/module_list_video.png'),),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      child: ListTile(
+                        title: Text('Whats is PEOPLEAPS?',style:new TextStyle(
+                            color:Colors.black,
+                            fontSize: 14.0),),
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                      ),
+                      height:30,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 
+class QuizCard extends StatelessWidget {
+  const  QuizCard({Key key,}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+//    final moduletitles = ['Introduce PEOPLEAPS',
+//      'Whats is PEOPLEAPS?',
+//      'Quiz for PEOPLEAPS',
+//      'Why PEOPLEAPS?'
+//    ];
 
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Card(
+        color: Colors.white,
+        elevation: 4.0,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Container(
+                    width: 55,
+                    height:55,
+                    child: new Container(
+                      decoration: new BoxDecoration(
+                        color: Colors.cyanAccent[400],
 
-
-
-
-
-
+                        boxShadow: [
+                          new BoxShadow(
+                              color: Colors.lightBlue[800],
+                              offset: new Offset(3.0,5.0),
+                              blurRadius:15,
+                          ),
+                        ],
+                        shape: BoxShape.circle,
+                        image: new DecorationImage(
+                            image: new AssetImage('assets/module_list_quiz.png'),),
+                      ),
+                    ),
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      child: ListTile(
+                        title: Text('Quiz for PEOPLEAPS',style:new TextStyle(
+                            color:Colors.black,
+                            fontSize: 14.0),),
+                        trailing: Icon(Icons.keyboard_arrow_right),
+                      ),
+                      height:30,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 
@@ -158,9 +406,9 @@ class FadeIn extends StatelessWidget {
   Widget build(BuildContext context) {
     final tween = MultiTrackTween([
       Track("opacity")
-          .add(Duration(milliseconds: 500), Tween(begin: 0.0, end: 1.0)),
+          .add(Duration(milliseconds:500), Tween(begin: 0.0, end: 1.0)),
       Track("translateX").add(
-          Duration(milliseconds: 500), Tween(begin: 130.0, end: 0.0),
+          Duration(milliseconds:500), Tween(begin: 130.0, end: 0.0),
           curve: Curves.easeOut)
     ]);
 

@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login_app/Dashboard/dashboard_page.dart';
 import 'package:flutter_login_app/login_page.dart';
 import 'ActionPlan/action_plan_list.dart';
+import 'Course/article_view_module.dart';
 import 'Course/course_list.dart';
 import 'Course/course_list_detail.dart';
+import 'Course/pdf_view_module.dart';
+import 'Course/quiz_module.dart';
+import 'Course/video_youtube_module.dart';
 import 'Discussion/discussion_topic_list.dart';
 import 'Notificaition/notification_view.dart';
 import 'Report/report.dart';
@@ -27,6 +31,11 @@ class MyApp extends StatelessWidget {
     TrainingSessionCheckoutPage.tag: (context) => TrainingSessionCheckoutPage(),
     ActionPlanDetailPage.tag: (context) =>ActionPlanDetailPage(),
     CourseListDetailPage.tag:(context) =>CourseListDetailPage(),
+    CourseListDetailPage.tag:(context) =>CourseListDetailPage(),
+    PdfViewPage.tag:(context) =>PdfViewPage(),
+    ArticleViewPage.tag:(context) =>ArticleViewPage(),
+    QuizViewPage.tag:(context) =>QuizViewPage(),
+    VideoYouTubeViewPage.tag:(context) =>VideoYouTubeViewPage(),
 
   };
 

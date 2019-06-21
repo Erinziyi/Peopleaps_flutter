@@ -1,85 +1,17 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login_app/Course/pdf_view_module.dart';
 import 'package:flutter_login_app/Course/quiz_module.dart';
 import 'package:flutter_login_app/Course/video_youtube_module.dart';
-import 'package:path/path.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'article_view_module.dart';
-import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
-import 'package:http/http.dart' as http;
-import 'dart:io';
 
-class CourseListDetailPage extends StatefulWidget {
+
+class CourseListDetailPage extends StatelessWidget {
+
   static String tag ='courselistdetail-page';
-
-
-
-  @override
-  _CourseListDetailPageState createState() => _CourseListDetailPageState();
-}
-
-class _CourseListDetailPageState extends State<CourseListDetailPage> {
-  String assetPDFPath ="";  // 1.OPTION ASSET File //Pdf
-  String urlPDFPath ="";   // 1.OPTION URL  //Pdf
-
-  @override
-  void initState(){
-    super.initState();
-//  2.step 3
-    getFileFromAsset("assets/mypdf.pdf").then((f){
-      setState(() {
-        assetPDFPath = f.path;
-        print(assetPDFPath);
-      });
-
-    });
-
-    getFileFromUrl("https://peopleaps-source.s3.ap-southeast-1.amazonaws.com/1/course/2/11/1550023335PomodoroTechniquepdfMmP2Sj9hw3.pdf#zoom=100&toolbar=0").then((f){
-      setState(() {
-        urlPDFPath =f.path;
-        print(urlPDFPath);
-      });
-
-    });
-  }
-
-
-//  2.ASYNC ASSET File
-  Future<File>getFileFromAsset(String asset)async{
-    try{
-      var data =await rootBundle.load(asset);
-      var bytes = data.buffer.asUint8List();
-      var dir = await getApplicationDocumentsDirectory();
-      File file = File("${dir.path}/mypdf.pdf");
-
-      File assetFile = await file.writeAsBytes(bytes);
-      return assetFile;
-
-    }catch(e){
-      throw Exception("Error opening asset file");
-    }
-  }
-
-//  2.ASYNC URL File
-  Future<File>getFileFromUrl(String url)async{
-    try{
-      var data =await http.get(url);
-      var bytes = data.bodyBytes;
-      var dir = await getApplicationDocumentsDirectory();
-      File file = File("${dir.path}/mypdf.pdf");
-
-      File urlFile = await file.writeAsBytes(bytes);
-      return urlFile;
-
-    }catch(e){
-      throw Exception("Error opening url file");
-    }
-  }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +22,7 @@ class _CourseListDetailPageState extends State<CourseListDetailPage> {
         ),
         backgroundColor: Colors.blueAccent[400],
 
-        title: Text('PEOPLEAPS',
+        title: Text('PEOPLEAPS' ,
           style: TextStyle(
             fontSize: 16.0,
             color: Colors.white,
@@ -138,6 +70,7 @@ class _CourseListDetailPageState extends State<CourseListDetailPage> {
       ),
     );
   }
+
   Widget _floatingPanel(){
     return Container(
 
@@ -184,7 +117,7 @@ class _CourseListDetailPageState extends State<CourseListDetailPage> {
               children: <Widget>[
                 FadeIn(1,QuizCard ()),
                 FadeIn(1.5,VideoCard ()),
-                FadeIn(2,PdfViewCard ()),
+                FadeIn(2,PdfViewCard()),
                 FadeIn(2.5, ArticleViewCard ()),
 
               ],
@@ -195,7 +128,6 @@ class _CourseListDetailPageState extends State<CourseListDetailPage> {
 
     );
   }
-
 }
 
 // Article
@@ -271,84 +203,34 @@ class ArticleViewCard extends StatelessWidget {
     );
   }
 }
-// Pdf
 
-class PdfViewCard extends StatelessWidget {
-  const  PdfViewCard({Key key,}) : super(key: key);
+
+
+// Pdf problem here
+class PdfViewCard extends StatefulWidget {
+  @override
+  _PdfViewCardState createState() => _PdfViewCardState();
+}
+
+class _PdfViewCardState extends State<PdfViewCard> {
+
+
   @override
   Widget build(BuildContext context) {
-//    final moduletitles = ['Introduce PEOPLEAPS',
-//      'Whats is PEOPLEAPS?',
-//      'Quiz for PEOPLEAPS',
-//      'Why PEOPLEAPS?'
-//    ];
-
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Card(
-        color: Colors.deepPurpleAccent[700],
-        elevation: 4.0,
-        child: InkWell(
-          onTap:(){
-            if(urlPDFPath !=null){
-              Navigator.of(context).pushNamed(QuizViewPage.tag(path: assetPDFPath));
+    return Container(
 
 
-            }
-//            Navigator.of(context).pushNamed(PdfViewPage.tag);
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
-                  child: Container(
-                    width: 55,
-                    height:55,
-                    child: new Container(
-                      decoration: new BoxDecoration(
-                        color: Colors.cyanAccent[400],
 
-                        boxShadow: [
-                          new BoxShadow(
-                            color: Colors.grey[900],
-                            offset: new Offset(3.0,5.0),
-                            blurRadius:50,
-                          ),
-                        ],
-                        shape: BoxShape.circle,
-                        image: new DecorationImage(
-                          image: new AssetImage('assets/module_list_pdfview.png'),),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        child: ListTile(
-                          title: Text('Introduce PEOPLEAPS',style:new TextStyle(
-                              color:Colors.white,
-                              fontSize: 14.0),),
-                          trailing: Icon(Icons.keyboard_arrow_right,color:Colors.white),
-                        ),
-                        height:30,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
 
-        ),
-      ),
+
     );
   }
 }
+
+
+
+
+
 
 // VideoYoutube
 
@@ -500,12 +382,6 @@ class QuizCard extends StatelessWidget {
 }
 
 
-
-
-
-
-
-
 class FadeIn extends StatelessWidget {
   final double delay;
   final Widget child;
@@ -535,3 +411,5 @@ class FadeIn extends StatelessWidget {
     );
   }
 }
+
+

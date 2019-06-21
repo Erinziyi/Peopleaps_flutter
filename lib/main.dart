@@ -14,6 +14,7 @@ import 'Report/report.dart';
 import 'Training/training_session.dart';
 import 'Training/training_session_checkout.dart';
 import 'action_plan_detail.dart';
+import 'package:path_provider/path_provider.dart';
 
 
 void main() => runApp(MyApp());
@@ -22,7 +23,6 @@ class MyApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
     DashboardPage.tag: (context) => DashboardPage(),
-    CourseListPage.tag: (context) => CourseListPage(),
     TrainingSessionPage.tag: (context) => TrainingSessionPage(),
     DiscussionTopicListPage.tag: (context) => DiscussionTopicListPage(),
     NotificationPage.tag: (context) => NotificationPage(),
@@ -30,9 +30,9 @@ class MyApp extends StatelessWidget {
     ReportPage.tag: (context) =>ReportPage(),
     TrainingSessionCheckoutPage.tag: (context) => TrainingSessionCheckoutPage(),
     ActionPlanDetailPage.tag: (context) =>ActionPlanDetailPage(),
+    CourseListPage.tag:(context) =>CourseListPage(),
     CourseListDetailPage.tag:(context) =>CourseListDetailPage(),
-    CourseListDetailPage.tag:(context) =>CourseListDetailPage(),
-    PdfViewPage.tag:(context) =>PdfViewPage(),
+    PdfPage.tag:(context) =>PdfPage(),
     ArticleViewPage.tag:(context) =>ArticleViewPage(),
     QuizViewPage.tag:(context) =>QuizViewPage(),
     VideoYouTubeViewPage.tag:(context) =>VideoYouTubeViewPage(),

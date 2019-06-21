@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login_app/Dashboard/dashboard_page.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-
-import '../login_page.dart';
 import 'course_list_detail.dart';
 
 class CourseListPage extends StatelessWidget {

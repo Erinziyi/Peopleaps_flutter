@@ -8,85 +8,16 @@ import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:http/http.dart' as http;
 
 
-class PdfPage extends StatefulWidget {
-  static String tag = 'pdf-page';
-
-  @override
-  _PdfPageState createState() => _PdfPageState();
-}
-
-class _PdfPageState extends State<PdfPage> {
-
-
-  String urlPDFPath = "";
-
-  @override
-  void initState() {
-    super.initState();
-
-
-
-    getFileFromUrl("http://www.pdf995.com/samples/pdf.pdf").then((f) {
-      setState(() {
-        urlPDFPath = f.path;
-        print(urlPDFPath);
-      });
-    });
-  }
-
-
-
-  Future<File> getFileFromUrl(String url) async {
-    try {
-      var data = await http.get(url);
-      var bytes = data.bodyBytes;
-      var dir = await getApplicationDocumentsDirectory();
-      File file = File("${dir.path}/mypdfonline.pdf");
-
-      File urlFile = await file.writeAsBytes(bytes);
-      return urlFile;
-    } catch (e) {
-      throw Exception("Error opening url file");
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar (
-        iconTheme: IconThemeData (
-          color: Colors.white, //change your color here
-        ),
-        backgroundColor: Colors.blueAccent[400],
-
-        title: Text ('PEOPLEAPS',
-          style: TextStyle (
-            fontSize: 16.0,
-            color: Colors.white,
-          ),
-
-        ),
-      ),
-
-      body:PdfViewPageDetail() ,
-
-
-
-    );
-  }
-}
-
-
-
-class PdfViewPageDetail extends StatefulWidget {
+class PdfViewDetailPage extends StatefulWidget {
+  static String tag ='pdfviewdetail-page';
   final String path;
 
-  const PdfViewPageDetail({Key key, this.path}) : super(key: key);
+  const PdfViewDetailPage({Key key, this.path}) : super(key: key);
   @override
-  _PdfViewPageDetailState createState() => _PdfViewPageDetailState();
+  _PdfViewDetailPageState createState() => _PdfViewDetailPageState();
 }
 
-class _PdfViewPageDetailState extends State<PdfViewPageDetail> {
+class _PdfViewDetailPageState extends State<PdfViewDetailPage> {
   int _totalPages = 0;
   int _currentPage = 0;
   bool pdfReady = false;
@@ -159,6 +90,8 @@ class _PdfViewPageDetailState extends State<PdfViewPageDetail> {
     );
   }
 }
+
+
 
 
 

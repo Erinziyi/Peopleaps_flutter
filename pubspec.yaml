@@ -33,6 +33,8 @@ dependencies:
   path_provider:
   http:
   flutter_pdfview:
+  chewie: ^0.9.7
+
 
 
 

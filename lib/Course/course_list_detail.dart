@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_login_app/Course/pdf_view_module.dart';
 import 'package:flutter_login_app/Course/quiz_module.dart';
 import 'package:flutter_login_app/Course/video_youtube_module.dart';
@@ -7,6 +10,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'article_view_module.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart' as http;
 
 
 class CourseListDetailPage extends StatelessWidget {
@@ -117,7 +121,7 @@ class CourseListDetailPage extends StatelessWidget {
               children: <Widget>[
                 FadeIn(1,QuizCard ()),
                 FadeIn(1.5,VideoCard ()),
-                FadeIn(2,PdfViewCard()),
+//                FadeIn(2,PdfViewCard()),
                 FadeIn(2.5, ArticleViewCard ()),
 
               ],
@@ -205,27 +209,87 @@ class ArticleViewCard extends StatelessWidget {
 }
 
 
-
-// Pdf problem here
-class PdfViewCard extends StatefulWidget {
-  @override
-  _PdfViewCardState createState() => _PdfViewCardState();
-}
-
-class _PdfViewCardState extends State<PdfViewCard> {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-
-
-
-
-
-    );
-  }
-}
+//
+//// Pdf problem here
+//class PdfViewCard extends StatefulWidget {
+//  @override
+//  _PdfViewCardState createState() => _PdfViewCardState();
+//}
+//
+//class _PdfViewCardState extends State<PdfViewCard> {
+//  @override
+//  Widget build(BuildContext context) {
+//    return Padding(
+//
+//      padding: const EdgeInsets.only(bottom: 8),
+//      child: Card(
+//        color: Colors.deepPurpleAccent[700],
+//        elevation: 4.0,
+//        child: InkWell(
+//          onTap:(){
+//
+//            Navigator.of(context).pushNamed( PdfViewDetailPage.tag);
+//
+//          },
+//          child: Padding(
+//            padding: const EdgeInsets.all(20.0),
+//            child: Row(
+//              crossAxisAlignment: CrossAxisAlignment.start,
+//              children: <Widget>[
+//                Padding(
+//                  padding: const EdgeInsets.only(right: 20.0),
+//                  child: Container(
+//                    width: 55,
+//                    height:55,
+//                    child: new Container(
+//                      decoration: new BoxDecoration(
+//                        color: Colors.cyanAccent[400],
+//
+//                        boxShadow: [
+//                          new BoxShadow(
+//                            color: Colors.grey[900],
+//                            offset: new Offset(3.0,5.0),
+//                            blurRadius:50,
+//                          ),
+//                        ],
+//                        shape: BoxShape.circle,
+//                        image: new DecorationImage(
+//                          image: new AssetImage('assets/module_list_pdfview.png'),),
+//                      ),
+//                    ),
+//                  ),
+//                ),
+//                Expanded(
+//                  child: Column(
+//                    children: <Widget>[
+//                      Container(
+//                        child: ListTile(
+//                          title: Text('Introduce Peopleaps?',style:new TextStyle(
+//                              color:Colors.white,
+//                              fontSize: 14.0),),
+//                          trailing: Icon(Icons.keyboard_arrow_right,color:Colors.white),
+//                        ),
+//                        height:30,
+//                      ),
+//                    ],
+//                  ),
+//                ),
+//              ],
+//            ),
+//          ),
+//
+//        ),
+//
+//      ),
+//
+//
+//
+//
+//
+//
+//    );
+//  }
+//}
 
 
 
@@ -251,7 +315,7 @@ class VideoCard extends StatelessWidget {
         elevation: 4.0,
         child: InkWell(
           onTap:(){
-            Navigator.of(context).pushNamed( VideoYouTubeViewPage .tag);
+            Navigator.of(context).pushNamed(VideoViewPage .tag);
           },
           child: Padding(
             padding: const EdgeInsets.all(20.0),

@@ -32,10 +32,10 @@ class MyApp extends StatelessWidget {
     ActionPlanDetailPage.tag: (context) =>ActionPlanDetailPage(),
     CourseListPage.tag:(context) =>CourseListPage(),
     CourseListDetailPage.tag:(context) =>CourseListDetailPage(),
-    PdfPage.tag:(context) =>PdfPage(),
+    PdfViewDetailPage.tag:(context) =>PdfViewDetailPage(),
     ArticleViewPage.tag:(context) =>ArticleViewPage(),
     QuizViewPage.tag:(context) =>QuizViewPage(),
-    VideoYouTubeViewPage.tag:(context) =>VideoYouTubeViewPage(),
+    VideoViewPage.tag:(context) =>VideoViewPage(),
 
   };
 

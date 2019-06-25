@@ -5,7 +5,7 @@ import 'ActionPlan/action_plan_list.dart';
 import 'Course/article_view_module.dart';
 import 'Course/course_list.dart';
 import 'Course/course_list_detail.dart';
-import 'Course/pdf_view_module.dart';
+
 import 'Course/quiz_module.dart';
 import 'Course/video_youtube_module.dart';
 import 'Discussion/discussion_topic_list.dart';
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
     ActionPlanDetailPage.tag: (context) =>ActionPlanDetailPage(),
     CourseListPage.tag:(context) =>CourseListPage(),
     CourseListDetailPage.tag:(context) =>CourseListDetailPage(),
-    PdfViewDetailPage.tag:(context) =>PdfViewDetailPage(),
+//    PdfViewDetailPage.tag:(context) =>PdfViewDetailPage(),
     ArticleViewPage.tag:(context) =>ArticleViewPage(),
     QuizViewPage.tag:(context) =>QuizViewPage(),
     VideoViewPage.tag:(context) =>VideoViewPage(),

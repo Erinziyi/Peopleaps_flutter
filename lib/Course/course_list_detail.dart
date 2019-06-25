@@ -2,15 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_login_app/Course/pdf_view_module.dart';
+
+
 import 'package:flutter_login_app/Course/quiz_module.dart';
 import 'package:flutter_login_app/Course/video_youtube_module.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:simple_animations/simple_animations.dart';
 import 'article_view_module.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:http/http.dart' as http;
+
 
 
 class CourseListDetailPage extends StatelessWidget {
